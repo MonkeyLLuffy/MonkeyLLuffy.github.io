@@ -116,7 +116,7 @@
 <meta property="og:image" content="https://github.com/MonkeyLLuffy/MonkeyLLuffy.github.io/blob/master/image/SinUpgithub.png?raw=true">
 <meta property="og:image" content="https://github.com/MonkeyLLuffy/MonkeyLLuffy.github.io/blob/master/image/settingProject.png?raw=true">
 <meta property="og:image" content="https://github.com/MonkeyLLuffy/MonkeyLLuffy.github.io/blob/master/image/over.jpg?raw=true">
-<meta property="og:updated_time" content="2016-07-08T14:39:43.515Z">
+<meta property="og:updated_time" content="2016-07-19T03:30:51.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的博客的搭建过程">
 <meta name="twitter:description" content="正文前的唠叨一名程序猿，没有个人博客说来惭愧，之前觉得搭建起来太麻烦就算惭愧也那么过了。今天看鸿洋大神的微信公众号推荐了博客搭建，方法看起来挺简单的，那我还能忍？
@@ -358,9 +358,7 @@
 <h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><p>node.js的安装也是十分简单，甚至连环境变量都不需要，下载客户端，然后基本就可以了。以下也是一个教程：<br><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="external">安装node.js</a></p>
 <h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>终于到正题了，我都等不及了。<br>以下是参考<a href="http://opiece.me/2015/04/09/hexo-guide/" target="_blank" rel="external">Chillax’s Blog</a> 来的，基本博客的结构也跟他差不多，因为我就是大概照着他弄的呀，哈哈<br>你问我有了他的你为麻子还要写？我乐意，不然我弄个人博客干嘛？  </p>
 <p>言归正传，通过hexo不用写html页面,基本是用markdown写作，<br>的常用命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo g <span class="comment">#生成静态文件  </span></div><div class="line">hexo d <span class="comment">#发布到github  </span></div><div class="line">hexo s <span class="comment">#发布在本地，localhost:4000</span></div><div class="line">hexo n <span class="comment">#新建一篇文章</span></div></pre></td></tr></table></figure>
-<p>安装过程中如果报错：ERROR Deployer not found : github<br>运行下面几行：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">	hexo g <span class="comment">#生成静态文件  </span></div><div class="line">	hexo d <span class="comment">#发布到github  </span></div><div class="line">	hexo s <span class="comment">#发布在本地，localhost:4000</span></div><div class="line">	hexo n <span class="comment">#新建一篇文章</span></div><div class="line">``` bash</div><div class="line"></div><div class="line">安装过程中如果报错：ERROR Deployer not found : github  </div><div class="line">运行下面几行：  </div><div class="line">  </div><div class="line">``` bash  </div><div class="line">	npm install hexo-deployer-git --save</div><div class="line">	hexo g</div><div class="line">	hexo d</div></pre></td></tr></table></figure>
 <p>下面开始安装，选择一个地方，右键，打开git bash<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure></p>
 <p>然后开始部署你的博客了哈，决定好你的博客位置了之后，建立一个文件夹，随便取名(不要中文哟，不然我也不知道会发生什么)。例如我：F:\OwnPage\hexo\<br>进入文件夹之后，再次打开git bash:依次输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init #下载搭建网站需要的文件</div><div class="line">npm install #这个时候显示出node.js的好处了，下载依赖包</div></pre></td></tr></table></figure></p>
 <p>哈哈，这个时候我们已经基本成功啦。我们在本地看一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo g</div><div class="line">hexo s</div></pre></td></tr></table></figure></p>
@@ -483,7 +481,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -491,7 +489,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -500,7 +498,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
