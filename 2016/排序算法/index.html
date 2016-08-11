@@ -113,7 +113,7 @@
 堆排序
 桶排序/基数排序
 
-冒泡排序冒牌排序从大一学C语言就已经学了，根据排序规则，前面的与后面的比对，违背了规则的交换位置，代码如下：1234">
+冒泡排序冒牌排序从大一学C语言就已经学了，根据排序规则，前面的与后面的比对，违背了规则的就交换位置，代码如下：123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法">
 <meta property="og:url" content="http://monkeylluffy.github.io/2016/排序算法/index.html">
@@ -129,8 +129,8 @@
 堆排序
 桶排序/基数排序
 
-冒泡排序冒牌排序从大一学C语言就已经学了，根据排序规则，前面的与后面的比对，违背了规则的交换位置，代码如下：1234">
-<meta property="og:updated_time" content="2016-08-11T07:44:52.759Z">
+冒泡排序冒牌排序从大一学C语言就已经学了，根据排序规则，前面的与后面的比对，违背了规则的就交换位置，代码如下：123">
+<meta property="og:updated_time" content="2016-08-11T07:54:36.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法">
 <meta name="twitter:description" content="排序复习排序算法复习了好久，一直进度缓慢，因为有个叫做堆排序的一直拦着我，强迫症真的不理解这个就没办法做下一个……然后就一直卡在这儿，边写博客边把这个算法攻克了去看其他的算法了。八大排序：  
@@ -144,7 +144,7 @@
 堆排序
 桶排序/基数排序
 
-冒泡排序冒牌排序从大一学C语言就已经学了，根据排序规则，前面的与后面的比对，违背了规则的交换位置，代码如下：1234">
+冒泡排序冒牌排序从大一学C语言就已经学了，根据排序规则，前面的与后面的比对，违背了规则的就交换位置，代码如下：123">
 
 
 
@@ -348,7 +348,7 @@
 <li>堆排序</li>
 <li>桶排序/基数排序</li>
 </ol>
-<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒牌排序从大一学C语言就已经学了，根据排序规则，前面的与后面的比对，违背了规则的交换位置，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>;j&lt;arr.length;j++)&#123;</div><div class="line">		<span class="keyword">if</span> (arr[i]&lt;arr[j]) &#123;</div><div class="line">			swap(arr, i, j);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒牌排序从大一学C语言就已经学了，根据排序规则，前面的与后面的比对，违背了规则的就交换位置，代码如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">   for (int i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">			for(int j = i+1;j&lt;arr.length;j++)&#123;</div><div class="line">				if (arr[i]&lt;arr[j]) &#123;</div><div class="line">					swap(arr, i, j);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">```  </div><div class="line"></div><div class="line"> ## 选择排序 ##  </div><div class="line">也是大一就是学的，每次找出最大或者最小的，然后与已排序到第几位的那个位置交换，可以二元选择，同时找最大和最小，省时间：</div><div class="line"></div><div class="line">``` java</div><div class="line">for (int i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">			int maxIndex = max(arr,i);</div><div class="line">			if ( maxIndex != i) &#123;</div><div class="line">				swap(arr,maxIndex,i);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">//找最大的索引值</div><div class="line">	public static int  max(int[] arr,int start) &#123;</div><div class="line">		int max = arr[start];</div><div class="line">		int maxIndex = start;</div><div class="line">		for (int i = start; i &lt; arr.length; i++) &#123;</div><div class="line">			if (arr[i]&gt;max) &#123;</div><div class="line">				max = arr[i];</div><div class="line">				maxIndex = i;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		return maxIndex;</div><div class="line">		</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
