@@ -105,11 +105,12 @@
 <meta name="description" content="操作系统的复习比较细致，花了一天半边看书边整理框架，把基本的架构和一些我觉得需要注意的写在了框架上，还有一些需要代码实现的。
 
 操作系统框架
+基本状态转换
 请求分页使用的最近最少未使用算法
 
-
 操作系统框架.png?raw=true)
-请求分页使用的最近最少未使用算法1234567891011121314151617181920212223242526272829303132333435363738394041">
+基本状态转换
+请求分页使用的最近最少未使用算法123456789101112131415161718192021222324252627282930313233343">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统">
 <meta property="og:url" content="http://monkeylluffy.github.io/2016/操作系统/index.html">
@@ -117,23 +118,26 @@
 <meta property="og:description" content="操作系统的复习比较细致，花了一天半边看书边整理框架，把基本的架构和一些我觉得需要注意的写在了框架上，还有一些需要代码实现的。
 
 操作系统框架
+基本状态转换
 请求分页使用的最近最少未使用算法
 
-
 操作系统框架.png?raw=true)
-请求分页使用的最近最少未使用算法1234567891011121314151617181920212223242526272829303132333435363738394041">
+基本状态转换
+请求分页使用的最近最少未使用算法123456789101112131415161718192021222324252627282930313233343">
 <meta property="og:image" content="https://github.com/MonkeyLLuffy/MonkeyLLuffy.github.io/blob/master/image/OS(%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">
-<meta property="og:updated_time" content="2016-09-04T02:01:53.862Z">
+<meta property="og:image" content="https://github.com/MonkeyLLuffy/MonkeyLLuffy.github.io/blob/master/image/%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2.png?raw=true">
+<meta property="og:updated_time" content="2016-09-04T03:09:12.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统">
 <meta name="twitter:description" content="操作系统的复习比较细致，花了一天半边看书边整理框架，把基本的架构和一些我觉得需要注意的写在了框架上，还有一些需要代码实现的。
 
 操作系统框架
+基本状态转换
 请求分页使用的最近最少未使用算法
 
-
 操作系统框架.png?raw=true)
-请求分页使用的最近最少未使用算法1234567891011121314151617181920212223242526272829303132333435363738394041">
+基本状态转换
+请求分页使用的最近最少未使用算法123456789101112131415161718192021222324252627282930313233343">
 <meta name="twitter:image" content="https://github.com/MonkeyLLuffy/MonkeyLLuffy.github.io/blob/master/image/OS(%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">
 
 
@@ -349,10 +353,11 @@
         <p>操作系统的复习比较细致，花了一天半边看书边整理框架，把基本的架构和一些我觉得需要注意的写在了框架上，还有一些需要代码实现的。</p>
 <ol>
 <li>操作系统框架</li>
+<li>基本状态转换</li>
 <li>请求分页使用的最近最少未使用算法</li>
-<li></li>
 </ol>
 <h2 id="操作系统框架"><a href="#操作系统框架" class="headerlink" title="操作系统框架"></a>操作系统框架</h2><p><img src="https://github.com/MonkeyLLuffy/MonkeyLLuffy.github.io/blob/master/image/OS(%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" alt="">.png?raw=true)</p>
+<h2 id="基本状态转换"><a href="#基本状态转换" class="headerlink" title="基本状态转换"></a>基本状态转换</h2><p><img src="https://github.com/MonkeyLLuffy/MonkeyLLuffy.github.io/blob/master/image/%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2.png?raw=true" alt=""></p>
 <h2 id="请求分页使用的最近最少未使用算法"><a href="#请求分页使用的最近最少未使用算法" class="headerlink" title="请求分页使用的最近最少未使用算法"></a>请求分页使用的最近最少未使用算法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/**</div><div class="line"> * 最近最少未使用算法</div><div class="line"> * </div><div class="line"> * @author LiuQun</div><div class="line"> *</div><div class="line"> */</div><div class="line">public class LRU &#123;</div><div class="line">	private int theArray[];//内存中的页面</div><div class="line">	private int back; // 定义队尾</div><div class="line">	private int currentSize; // 队列中存放元素个数</div><div class="line">	private int maxSize = 5; // 队列中能存放元素的个数</div><div class="line"></div><div class="line">	public LRU() &#123;</div><div class="line">		theArray = new int[maxSize];</div><div class="line">		back = 0;</div><div class="line">		currentSize = 0;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * 挨个入队</div><div class="line">	 * @param a</div><div class="line">	 */</div><div class="line">	public void queue(int sequence[]) &#123;</div><div class="line">		for (int i = 0; i &lt; sequence.length; i++) &#123;</div><div class="line">			enQueue(sequence[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * 将页面加入队列，</div><div class="line">	 * @param x 页号</div><div class="line">	 */</div><div class="line">	public void enQueue(int x) &#123; // 入队</div><div class="line">		//检查队列中是否已经有了该页，并做另外的处理</div><div class="line">		beUsed(x); </div><div class="line">		</div><div class="line">		//队列未满的情况下，直接加入新页面（最开始与队列中已存在该页面）</div><div class="line">		if (currentSize &lt; maxSize) &#123;</div><div class="line">			theArray[back] = x;</div><div class="line">			back++;</div><div class="line">			currentSize++;</div><div class="line">		&#125; </div><div class="line">		//队列已满的情况下（队列中没有这个页面并且队列加满），移除第一个页面，其他的往前移动，将队尾的页面为新加入的</div><div class="line">		else if (currentSize == maxSize) &#123; // 满了</div><div class="line">			for (int i = 0; i &lt; maxSize - 1; i++) &#123;</div><div class="line">				theArray[i] = theArray[i + 1];</div><div class="line">			&#125;</div><div class="line">			theArray[maxSize - 1] = x;</div><div class="line">		&#125;</div><div class="line">		//打印队列中的元素</div><div class="line">		for (int i = 0; i &lt; currentSize; i++) &#123;</div><div class="line">			System.out.print(theArray[i]);</div><div class="line">		&#125;</div><div class="line">		System.out.println();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	/**</div><div class="line">	 * 判断是否已存在该页号,若存在，将这页后的页面往前移动，将这个已存在的页面删除</div><div class="line">	 * @param x 页号</div><div class="line">	 */</div><div class="line">	public void beUsed(int x) &#123; </div><div class="line">		for (int i = 0; i &lt; currentSize; i++) &#123;</div><div class="line">			if (theArray[i] == x) &#123;</div><div class="line">				for (int j = i; j &lt; currentSize - 1; j++) &#123;</div><div class="line">					theArray[j] = theArray[j + 1];</div><div class="line">				&#125;</div><div class="line">				//当前页面数和队尾坐标都减1</div><div class="line">				currentSize--;</div><div class="line">				back--;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		LRU lru = new LRU();</div><div class="line">		int[] sequence = &#123; 1, 2, 3, 4, 2, 1, 5, 6, 2, 1, 2, 3, 7, 6, 3, 2, 1, 2, 3, 6 &#125;;</div><div class="line">		lru.queue(sequence);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
@@ -529,7 +534,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统框架"><span class="nav-number">1.</span> <span class="nav-text">操作系统框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求分页使用的最近最少未使用算法"><span class="nav-number">2.</span> <span class="nav-text">请求分页使用的最近最少未使用算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统框架"><span class="nav-number">1.</span> <span class="nav-text">操作系统框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本状态转换"><span class="nav-number">2.</span> <span class="nav-text">基本状态转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求分页使用的最近最少未使用算法"><span class="nav-number">3.</span> <span class="nav-text">请求分页使用的最近最少未使用算法</span></a></li></ol></div>
             
           </div>
         </section>
