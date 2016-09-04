@@ -107,7 +107,13 @@
 多了bool类型变量，表示：true,false
 输入输出语句
 命名空间
-代码编写技能">
+代码编写技能
+
+2016-09-04日补充
+
+const字
+引用（指针）
+方法重载">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++基础学习">
 <meta property="og:url" content="http://monkeylluffy.github.io/2016/c-基础学习/index.html">
@@ -117,8 +123,14 @@
 多了bool类型变量，表示：true,false
 输入输出语句
 命名空间
-代码编写技能">
-<meta property="og:updated_time" content="2016-08-11T13:21:55.916Z">
+代码编写技能
+
+2016-09-04日补充
+
+const字
+引用（指针）
+方法重载">
+<meta property="og:updated_time" content="2016-09-04T09:30:43.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++基础学习">
 <meta name="twitter:description" content="2016-08-11到今天为止只学习了慕课网的基础课程C++远征之起航篇根据这之前的学习总结下：  
@@ -126,7 +138,13 @@
 多了bool类型变量，表示：true,false
 输入输出语句
 命名空间
-代码编写技能">
+代码编写技能
+
+2016-09-04日补充
+
+const字
+引用（指针）
+方法重载">
 
 
 
@@ -343,9 +361,15 @@
 <li>多了bool类型变量，表示：true,false</li>
 <li>输入输出语句</li>
 <li>命名空间</li>
-<li>代码编写技能<a id="more"></a>
-</li>
+<li>代码编写技能</li>
 </ol>
+<p>2016-09-04日补充</p>
+<ol>
+<li>const字</li>
+<li>引用（指针）</li>
+<li>方法重载</li>
+</ol>
+<a id="more"></a>
 <h2 id="输入输出语句"><a href="#输入输出语句" class="headerlink" title="输入输出语句"></a>输入输出语句</h2><p>输出</p>
 <ol>
 <li>输出语句比较简单，就是cout&lt;&lt;x&lt;&lt;endl;</li>
@@ -360,6 +384,48 @@
 <h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p>namespace是我在c++中见过的比较独特的东西（java，c中都没见过），可以在里面写方法写属性，感觉跟java中静态类有点像，不需要实例化这些：<br>定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">namespace myNum            //填写命名空间的关键字</div><div class="line">&#123;</div><div class="line">	int x = 105;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>使用（在一个文件内不需要using myNum）:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">using namespace std;//标准命名空间，输入输出那些关键字</div><div class="line">if (myNum::x % 2 == 0)</div><div class="line">	&#123;</div><div class="line">		//改变状态位的值，使其为false</div><div class="line">		isFlag = false;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="代码编写技能"><a href="#代码编写技能" class="headerlink" title="代码编写技能"></a>代码编写技能</h2><p>我是用VS来编写代码的，新建项目之后，有个解决方案的东西，一个解决方案对应一个项目对应一个main方法，多个文件里都有main方法会报错。<br>还有就是最后一句一定要加上system(“pause”)；不然看不到运行结果</p>
+<hr>
+<h2 id="const字"><a href="#const字" class="headerlink" title="const字"></a>const字</h2><p>① const int a = 3;<br>② int const a = 3;<br>③ int const <em>p = 3;<br>④ const int </em>p = 3;<br>①，②两句完全等价，不能再对a改变赋值,③，④两句完全等价  </p>
+<p>但是，int * const p = 3与③，④不等价，也可以两处都加const  </p>
+<p>const <em>p这样不能对</em>p改变赋值  </p>
+<ul>
+<li>const p不能通过p来改变赋值<br>两处都使用const时，不能通过<em>p,p来改变赋值<br>int const a = 3;指针指向const修饰的变量时，应该是const int const </em>p = &a;  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//定义常量count</div><div class="line">const int count = 3;</div><div class="line">const int *p = &amp;count;</div><div class="line">//打印count次字符串Hello C++</div><div class="line">for (int i = 0; i &lt; count; i++)</div><div class="line">&#123;</div><div class="line">	cout &lt;&lt; &quot;Hello imooc&quot; &lt;&lt; endl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>普通类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int a = 3;</div><div class="line">int &amp;b = a;//b为a的别名</div></pre></td></tr></table></figure></p>
+<p>构造类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">typedef struct &#123;</div><div class="line">	int x;</div><div class="line">	int y;</div><div class="line">&#125;Coor;</div><div class="line">void quoteTest() &#123;</div><div class="line">	Coor c;</div><div class="line">	Coor &amp;c1 = c;</div><div class="line">	c1.x = 10;</div><div class="line">	c1.y = 20;</div><div class="line"></div><div class="line">	cout &lt;&lt; c.x &lt;&lt; c.y &lt;&lt; endl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>指针类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int a =10;</div><div class="line">int *p = &amp;a;</div><div class="line">int *&amp;q = p;</div><div class="line">//指针p指向a;q是p的别名,改变*q的值也会改变a的值</div></pre></td></tr></table></figure>
+<p>在作为函数参数时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">void fun(int &amp;a,int &amp;b)&#123;</div><div class="line">	//交换</div><div class="line">	int  c = a;</div><div class="line">	a = b;</div><div class="line">	b = c;</div><div class="line">&#125;</div><div class="line">int x = 10;int y = 20;</div><div class="line">fun(x,y)；</div></pre></td></tr></table></figure>
+<p>别名必须对应一个真实的变量：int &amp;b = NULL;这种写法是错的;<br>引用不能单独存在：int &a;这种写法也是错误的。 </p>
+<h2 id="函数特性"><a href="#函数特性" class="headerlink" title="函数特性"></a>函数特性</h2><p>可以在参数列表进行设置默认值。但一定要在最右端；在声明的时候加默认值，在定义的时候不加默认值。<br>实参覆盖默认值 ；名称相同，参数可变。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//三种都可以调用</div><div class="line">functionTest(10,2,3); </div><div class="line">functionTest(10, 2);</div><div class="line">functionTest(10);</div><div class="line">functionTest(10,2.2,3.3); </div><div class="line">functionTest(10, 2.2222);</div><div class="line">functionTest(10.222);</div><div class="line"></div><div class="line">void functionTest(int i, int j = 10,int k = 20);</div><div class="line"></div><div class="line"></div><div class="line">void functionTest(int i, int j, int k ) &#123;</div><div class="line">	cout &lt;&lt; i &lt;&lt; j &lt;&lt; k &lt;&lt; endl;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void functionTest(double i, double j = 10,double k = 2.3333);</div><div class="line">	</div><div class="line">	</div><div class="line">void functionTest(double i, double j, double k ) &#123;</div><div class="line">	cout &lt;&lt; i &lt;&lt; j &lt;&lt; k &lt;&lt; endl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>内联函数只是一种编译方式，是建议内联函数，要求逻辑必须简单，不能有递归，不能有循环  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">	inline void change(int &amp;b,int &amp;a)&#123;</div><div class="line">	//交换</div><div class="line">	&#125;</div><div class="line"></div><div class="line">```	</div><div class="line"></div><div class="line"></div><div class="line">## c++内存管理 ##</div><div class="line"></div><div class="line">new 关键字申请内存，delete释放内存； new和delete一定要配套使用</div></pre></td></tr></table></figure>
+<pre><code>int *p = new int;
+*p = 20;
+delete p;
+
+//在堆中申请100个char类型的内存
+char *str = new char[100];
+
+//拷贝Hello C++字符串到分配的堆中的内存中
+strcpy(str, &quot;Hello imooc&quot;);
+
+//打印字符串
+cout &lt;&lt; str &lt;&lt; endl;
+//释放内存
+delete[]str;
+str = NULL;
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">申请内存有可能不成功；判断是否申请成功：</div></pre></td></tr></table></figure>
+<pre><code>int *p = new int（20）;//同时进行初始化
+if(p == NULL){
+//内存分配失败
+//异常处理
+}
+</code></pre><p>```</p>
 
       
     </div>
@@ -535,7 +601,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-08-11"><span class="nav-number">1.</span> <span class="nav-text">2016-08-11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出语句"><span class="nav-number">1.1.</span> <span class="nav-text">输入输出语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间"><span class="nav-number">1.2.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码编写技能"><span class="nav-number">1.3.</span> <span class="nav-text">代码编写技能</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-08-11"><span class="nav-number">1.</span> <span class="nav-text">2016-08-11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出语句"><span class="nav-number">1.1.</span> <span class="nav-text">输入输出语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间"><span class="nav-number">1.2.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码编写技能"><span class="nav-number">1.3.</span> <span class="nav-text">代码编写技能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const字"><span class="nav-number">1.4.</span> <span class="nav-text">const字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">1.5.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数特性"><span class="nav-number">1.6.</span> <span class="nav-text">函数特性</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
