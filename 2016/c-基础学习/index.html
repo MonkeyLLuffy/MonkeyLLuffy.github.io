@@ -113,7 +113,13 @@
 
 const字
 引用（指针）
-函数特性">
+函数特性  
+
+2016-09-06日补充
+
+封装类
+初始化对象
+对象的访问">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++基础学习">
 <meta property="og:url" content="http://monkeylluffy.github.io/2016/c-基础学习/index.html">
@@ -129,8 +135,14 @@ const字
 
 const字
 引用（指针）
-函数特性">
-<meta property="og:updated_time" content="2016-09-04T09:32:21.874Z">
+函数特性  
+
+2016-09-06日补充
+
+封装类
+初始化对象
+对象的访问">
+<meta property="og:updated_time" content="2016-09-06T04:43:02.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++基础学习">
 <meta name="twitter:description" content="2016-08-11到今天为止只学习了慕课网的基础课程C++远征之起航篇根据这之前的学习总结下：  
@@ -144,7 +156,13 @@ const字
 
 const字
 引用（指针）
-函数特性">
+函数特性  
+
+2016-09-06日补充
+
+封装类
+初始化对象
+对象的访问">
 
 
 
@@ -367,7 +385,13 @@ const字
 <ol>
 <li>const字</li>
 <li>引用（指针）</li>
-<li>函数特性</li>
+<li>函数特性  </li>
+</ol>
+<p>2016-09-06日补充</p>
+<ol>
+<li>封装类</li>
+<li>初始化对象</li>
+<li>对象的访问</li>
 </ol>
 <a id="more"></a>
 <h2 id="输入输出语句"><a href="#输入输出语句" class="headerlink" title="输入输出语句"></a>输入输出语句</h2><p>输出</p>
@@ -425,7 +449,10 @@ if(p == NULL){
 //内存分配失败
 //异常处理
 }
-</code></pre><p>```</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 封装类 ##</div><div class="line"></div><div class="line">c++的类是通过关键字class来表示的。对于类里面的属性和方法的访问控制由private,public,protect来控制的(含义与java里面类似)。  </div><div class="line">  </div><div class="line">一般把public写在前面，private写在后面。具体实例代码如下。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">## 初始化对象 ##</div><div class="line"></div><div class="line">c++的对象的初始化对象有两种，一种是在栈上初始化，一种是在堆上初始化。  </div><div class="line">  </div><div class="line">栈上分配的方式不需要new关键字申请内存，相应的也不需要delete来释放内存，用一个‘.’来访问这个对象内部的数据和方法；  </div><div class="line">  </div><div class="line">堆上分配的方式就是普通java对象实例化的方式，通过new关键字来在堆上申请内存，同时也必须通过delete来释放申请的内存，通过‘-&gt;’来访问对象内部的数据和方法。  </div><div class="line">  </div><div class="line">具体的实例代码如下：</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">## 对象的访问 ##</div><div class="line"></div><div class="line">与java类似，数据域如果可以直接访问是不科学的，违背了面向对象的原则，所以要进行访问控制。一般来说就是要将所有的数据域（属性）都要设置为private，而根据需求来确定是否需要编写get/set方法。  </div><div class="line">  </div><div class="line">代码如下：</div></pre></td></tr></table></figure>
+<p>```</p>
 
       
     </div>
@@ -535,7 +562,7 @@ if(p == NULL){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
