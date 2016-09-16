@@ -136,7 +136,7 @@
 持有对象
 通过异常处理处理错误
 字符">
-<meta property="og:updated_time" content="2016-09-06T05:27:19.240Z">
+<meta property="og:updated_time" content="2016-09-16T11:30:35.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java编程思想">
 <meta name="twitter:description" content="这篇博客全篇都是java的知识点，边看《Java编程思想》边写的，一天两天之内可能无法完成，但是我也肯定会在最近这几天内看完，然后再开始看一些网络知识了。当然我不能照着书全部重新敲一遍，我只是整理我觉得混淆的和以前并不清楚的东西。不全面也是正常了。  
@@ -390,6 +390,7 @@
 <li>并发</li>
 <li>组件</li>
 </ol>
+<a id="more"></a>
 <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p><strong>对象：</strong>将问题空间中的元素及其在解空间中的表示称为对象。也就是说：程序可以通过添加新类型的对象使自身适用于某个特定的问题。对象具有状态，行为和标识。  </p>
 <p><strong>类：</strong>描述了具有相同特性（数据元素）和行为（功能）的对象集合，所以一个类实际上就是一个数据类型。  </p>
 <p><strong>接口</strong>确定了对某一特定对象所能发出的请求。  </p>
@@ -422,19 +423,56 @@
 <h2 id="控制执行流程"><a href="#控制执行流程" class="headerlink" title="控制执行流程"></a>控制执行流程</h2><p>while与do-while的区别就是：do-while至少会执行一次。  </p>
 <p>逗号操作符运用的位置：函数的参数列表用逗号隔开，和for语句中控制表达式for(int j = 0,i = 1=;j&lt;10;j++,i++),用逗号可以定义多个变量，但必须具有相同的类型。  </p>
 <p>for(int i:arr)是以foreach的方式遍历数组。  </p>
-<h2 id="初始化与清理"><a href="#初始化与清理" class="headerlink" title="初始化与清理"></a>初始化与清理</h2><p>为了让方法名相同而形式参数不用的构造器同时存在，所以必须用到<strong>方法重载</strong>。也可应用于其他方法，且方法同样方便。根据返回值来重载方法是行不通的  </p>
+<h2 id="初始化与清理"><a href="#初始化与清理" class="headerlink" title="初始化与清理"></a>初始化与清理</h2><p>为了让方法名相同而形式参数不用的构造器同时存在，所以必须用到<strong>方法重载</strong>。也可应用于其他方法，且方法同样方便。根据返回值来重载方法是行不通的。在导出类中也可以对基类方法进行重载。  </p>
 <p>重载接收较小的基本类型（例如参数是int,传入long），如果传入的参数较大，就得通过类型转换来执行窄化转换。如果不这样做就会报错。  </p>
 <p><strong>this</strong>只能在方法内部使用，表示调用那个方法的对象。需要返回对当前对象的引用时，可以直接使用：<strong>return this</strong>;  </p>
 <p>通过this对构造函数的调用，<strong>只能在构造函数内能调用</strong>，<strong>调用语句必须是第一句</strong>，并且<strong>一个构造器内只能调用一个构造函数</strong>。  </p>
 <p>static方法内部不能调用非静态的方法，但是反过来可以。调用static方法时，由于存在this（不需要实例化就可以调用），所以不是通过“<strong>向对象发送消息</strong>”。  </p>
 <p><strong>垃圾回收器基本原理</strong>就是虚拟机每隔一段时间就会运行一次垃圾回收或是在虚拟机认为需要的时候。主动调用是System.gc()。垃圾回收器运行了当然会收回内在。  </p>
 <p>使用垃圾回收器的唯一原因是为了回收程序不再使用的内存。所以对于与垃圾回收有关的任何行为来说（尤其是finalize方法），他们也必须同内存及其回收有关。如果JVM并未面临内存耗尽的情形，它是不会花费时间去执行垃圾回收以恢复内存的。  </p>
+<p>最好是除了内存之外，不能依赖垃圾回收器做任何事情。如需清理，最好编写自己的清理方法，不要使用finalize()方法  </p>
 <p>当调用对象太多（我试了调用十万次）时，存储空间满了，会自动调用系统垃圾回收，强制进行终结的代码如下：  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">System.gc();<span class="comment">//调用系统的垃圾回收</span></div></pre></td></tr></table></figure>
 <p>java的所有对象（基本类型除外）都是在堆上分配的方式。每个对象都含有一个引用计数器，当引用的计数值变为0时，立即释放对象。  </p>
 <p>在类的内部，变量定义的先后顺序决定了初始化的先后顺序，但是变量初始化先于任何方法调用。静态初始化只有在必要的时候才会进行。构造器实际上也是静态方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cup</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Cup</span><span class="params">(<span class="keyword">int</span> maker)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated constructor stub</span></div><div class="line">		System.out.println(<span class="string">"Cup("</span>+maker+<span class="string">")"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> maker)</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"f("</span>+maker+<span class="string">")"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cups</span></span>&#123;</div><div class="line">	<span class="keyword">static</span> Cup cup1;</div><div class="line">	<span class="keyword">static</span> Cup cup2;</div><div class="line">	<span class="keyword">static</span> Cup cup4 = <span class="keyword">new</span> Cup(<span class="number">4</span>);</div><div class="line">	</div><div class="line">	Cup cup3;</div><div class="line">	<span class="keyword">static</span>&#123;</div><div class="line">		<span class="comment">//这个块只调用一次</span></div><div class="line">		cup1 = <span class="keyword">new</span> Cup(<span class="number">1</span>);</div><div class="line">		cup2 = <span class="keyword">new</span> Cup(<span class="number">2</span>);</div><div class="line">		<span class="comment">//cup3不能放到静态块中，因为它不是静态的变量</span></div><div class="line">		System.out.println(<span class="string">"--------"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YiWei</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Cups.cup1.f(<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="访问控制权限控制"><a href="#访问控制权限控制" class="headerlink" title="访问控制权限控制"></a>访问控制权限控制</h2><h2 id="复用类"><a href="#复用类" class="headerlink" title="复用类"></a>复用类</h2><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><h2 id="持有对象"><a href="#持有对象" class="headerlink" title="持有对象"></a>持有对象</h2><h2 id="通过异常处理处理错误"><a href="#通过异常处理处理错误" class="headerlink" title="通过异常处理处理错误"></a>通过异常处理处理错误</h2><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h2 id="类型信息"><a href="#类型信息" class="headerlink" title="类型信息"></a>类型信息</h2><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h2 id="容器的深入研究"><a href="#容器的深入研究" class="headerlink" title="容器的深入研究"></a>容器的深入研究</h2><h2 id="Java-I-O系统"><a href="#Java-I-O系统" class="headerlink" title="Java I/O系统"></a>Java I/O系统</h2><h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2>
+<p>java中指定可变参数实质上是编译器为程序员将参数列表填充为数组。  </p>
+<p>枚举类型初体验</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YiWei</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Spiciness howHot = Spiciness.NOT;</div><div class="line">		swtch(howHot)&#123;</div><div class="line">		<span class="comment">//可以直接将枚举类型当作常数处理</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">enum</span> Spiciness&#123;</div><div class="line">		NOT,MILD,MEDIUM,HOT,FLAMING</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="访问控制权限控制"><a href="#访问控制权限控制" class="headerlink" title="访问控制权限控制"></a>访问控制权限控制</h2><p>java包的命名规则是全部使用小写字母，包括中间的字也是如此。  </p>
+<p>类既不可以是private的，也不可以是protect。所以类权限只可以是public和包权限。如果不希望其他任何人对类有访问权限，可以对构造器设置权限为private.  </p>
+<p>Java中，关键字package，包的命名模式和关键字import，可以使你对名称完全控制，从而避免命名冲突。</p>
+<h2 id="复用类"><a href="#复用类" class="headerlink" title="复用类"></a>复用类</h2><p>复用类的方法有二：1 组合，2 继承。  </p>
+<p>toString();方法的调用机制：当编译器需要一个String而你却只有一个对象时，toString()方法就会被调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cup</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Cup</span><span class="params">(<span class="keyword">int</span> maker)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated constructor stub</span></div><div class="line">		System.out.println(<span class="string">"Cup("</span>+maker+<span class="string">")"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> maker)</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"f("</span>+maker+<span class="string">")"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cups</span> <span class="keyword">extends</span> <span class="title">Cup</span></span>&#123;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Cups</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated constructor stub</span></div><div class="line">		<span class="keyword">super</span>(<span class="number">0</span>);</div><div class="line">		System.out.println(<span class="string">"Cups"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YiWei</span> <span class="keyword">extends</span> <span class="title">Cups</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		YiWei yiWei = <span class="keyword">new</span> YiWei();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//输出：Cup(0)</span></div><div class="line"><span class="comment">//		Cups</span></div></pre></td></tr></table></figure>
+<p>从上面的输出结果来看，在实例化导出类的构建导出类的对象的时候，在那之前，基类的初始化已经完成了。在继承基类的时候，若是基类<strong>没有无参构造器</strong>，那么导出类会被编译器<strong>强制要求</strong>显式调用一个父类的一个构造器。若父类<strong>有无参构造器</strong>的话，则不会强制要求调用父类构造器，应该编译器隐式调用那么无参构造器。  </p>
+<p>@override可以防止在不想重载的时候进行了重载。  </p>
+<p>final修饰的变量必须赋值（在域的定义处或者每个构造器中用表达式对final进行赋值）。final对于基本数值，表示<strong>数值恒定不变</strong>；对于对象，<strong>表示引用恒定不变</strong>。无法指向下一块空间。但是对象本身是可以改变的。Java并未提供使对象恒定不变的效果。  </p>
+<p>带有恒定初始值的final static基本类型全用大写字母命名，并且单词与单词之间用下划线隔开。  </p>
+<p>final允许在参数列表中使用，表示无法在方法中更改参数引用所指向的对象。  </p>
+<p>final方法使用的原因有二：一：把方法锁定，不允许任何继承修改它的含义；二是因为效率（已经不需要）。类中所有的private方法都隐式的指定为final,如果试图覆盖一个private方法（隐式指定final），似乎是奏效的，而且编译器不会报错,但显示的final方法会报错。  </p>
+<p>final类表示不允许继承。  </p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>向上转型：把对象的引用视为对其基本类型的引用的做法被称作向上转型。  </p>
+<p>java是通过<strong>后期绑定</strong>（也叫动态绑定、运行时绑定）的方式，以便在运行的时候能判断对象的类型。  </p>
+<p><strong>封装</strong>通过合并特征和行为来创建新的数据类型。<strong>实现隐藏</strong>则是通过将细节“私有化”把接口实现分离开来。而<strong>多态的作用</strong>是消除类型之间的耦合关系，将改变的事物与未变的事物分离开来。  </p>
+<p>非private，final方法才可以实现覆盖调用，而且只有方法可以是多态。如果一个方法是静态的，那它的行为也不具有多态性。构造方法是隐式的static方法。  </p>
+<p>构造器中唯一能安全调用的方法是基类的final方法，这些方法不会被覆盖。  </p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>包含抽象方法的类叫做抽象类。</p>
+<p>c++参数列表入栈顺序从右往左，Java的顺序正好相反。</p>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><p>匿名内部类<br>嵌套内部类<br>静态内部类<br>内部类的使用复杂，而且极其容易忘记，内部类可以完成很多不可思议的需求。</p>
+<h2 id="持有对象"><a href="#持有对象" class="headerlink" title="持有对象"></a>持有对象</h2><p>Collection:Map,set,List  </p>
+<p>Set中相同元素只能存储一次，但又不像Map那样以键值对的形式存储。HashSet是最快的元素获取方式，如果强调顺序则可以使用TreeSet(将元素升序存储)或者LinkedHashSet（添加的顺序存储）。TreeSet没有实现Colloction中的所有接口。  </p>
+<p>Map也是三种Map:HashMap查找最快，TreeMap升序，LinkedHashMap按插入的顺序存。  </p>
+<p>List分为ArrayList和LinkedList。两者在某些操作的性能不同，而且LinkedList包含的操作也多于ArrayList。  </p>
+<p>ArrayList:长于随机访问元素，但是在中间进行插入和删除元素比较缓慢。  </p>
+<p>LinkedList:通过较低的代价在List中间进行插入和删除操作。但是在随机访问方面相对较慢。添加了可以使其用做栈，队列，或双端队列的方法。[element() = getFirst(),offer()：将一个元素插到队尾,peek()：获取栈顶元素,poll(),remove() = removeFirst()]  </p>
+<p>Stack:LinkedList具有能够直接实现栈的所有功能的方法，所以可以直接将LinkedList转换为Stack。[pop():移除并返回栈顶元素，peek(),push(),empty()]</p>
+<p>Map可以返回他的键的Set，他是值的Collection,或者他的键值对的Set.Map可以通过entrySet()和values()产生Colloction.  </p>
+<p>Queue:队列是一个典型的先进先出的容器。在不需要Collection的方法的情况下，就可以拥有一个可用的Queue.它声明弹出的是等待时间最长的元素。  </p>
+<p>PriorityQueue:优先队列，它声明下一个弹出的是最需要的元素（最高的优先级）。comparator对象来改变排序（如果想在优先队列中使用自己的类，那么使用者就必须提供自己的Comparator）。</p>
+<p>迭代器：遍历选择序列中的对象。通常被称为轻量级对象，创建他的代价小。Java中的Iterator只能单向移动。  </p>
+<p>ListIterator只能用于List的访问，可以双向移动。</p>
+<h2 id="通过异常处理处理错误"><a href="#通过异常处理处理错误" class="headerlink" title="通过异常处理处理错误"></a>通过异常处理处理错误</h2><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h2 id="类型信息"><a href="#类型信息" class="headerlink" title="类型信息"></a>类型信息</h2><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h2 id="容器的深入研究"><a href="#容器的深入研究" class="headerlink" title="容器的深入研究"></a>容器的深入研究</h2><h2 id="Java-I-O系统"><a href="#Java-I-O系统" class="headerlink" title="Java I/O系统"></a>Java I/O系统</h2><h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2>
       
     </div>
 
@@ -472,6 +510,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/数据结构/" rel="prev" title="数据结构">
+                数据结构 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -539,7 +581,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -556,7 +598,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
