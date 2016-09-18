@@ -136,7 +136,7 @@
 持有对象
 通过异常处理处理错误
 字符">
-<meta property="og:updated_time" content="2016-09-16T11:30:35.366Z">
+<meta property="og:updated_time" content="2016-09-18T03:33:31.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java编程思想">
 <meta name="twitter:description" content="这篇博客全篇都是java的知识点，边看《Java编程思想》边写的，一天两天之内可能无法完成，但是我也肯定会在最近这几天内看完，然后再开始看一些网络知识了。当然我不能照着书全部重新敲一遍，我只是整理我觉得混淆的和以前并不清楚的东西。不全面也是正常了。  
@@ -429,6 +429,27 @@
 <p>通过this对构造函数的调用，<strong>只能在构造函数内能调用</strong>，<strong>调用语句必须是第一句</strong>，并且<strong>一个构造器内只能调用一个构造函数</strong>。  </p>
 <p>static方法内部不能调用非静态的方法，但是反过来可以。调用static方法时，由于存在this（不需要实例化就可以调用），所以不是通过“<strong>向对象发送消息</strong>”。  </p>
 <p><strong>垃圾回收器基本原理</strong>就是虚拟机每隔一段时间就会运行一次垃圾回收或是在虚拟机认为需要的时候。主动调用是System.gc()。垃圾回收器运行了当然会收回内在。  </p>
+<p>两个最基本的java回收算法：复制算法和标记清理算法  </p>
+<ol>
+<li>复制算法：两个区域A和B，初始对象在A，继续存活的对象被转移到B。此为新生代最常用的算法</li>
+<li>标记清理：一块区域，标记要回收的对象，然后回收，一定会出现碎片，那么引出标记-整理算法：多了碎片整理，整理出更大的内存放更大的对象  </li>
+</ol>
+<p>两个概念：新生代和年老代</p>
+<ol>
+<li>新生代：初始对象，生命周期短的</li>
+<li>永久代：长时间存在的对象<br>整个java的垃圾回收是新生代和年老代的协作，这种叫做分代回收。  </li>
+</ol>
+<p>P.S：</p>
+<ol>
+<li>Serial New收集器是针对新生代的收集器，采用的是复制算法    </li>
+<li>Parallel New（并行）收集器，新生代采用复制算法，老年代采用标记整理</li>
+<li>Parallel  Scavenge（并行）收集器，针对新生代，采用复制收集算法</li>
+<li>Serial Old（串行）收集器，新生代采用复制，老年代采用标记清理</li>
+<li>Parallel   Old（并行）收集器，针对老年代，标记整理</li>
+<li>CMS收集器，基于标记清理</li>
+<li>G1收集器：整体上是基于标记清理，局部采用复制</li>
+</ol>
+<p><strong>综上：</strong>新生代基本采用复制算法，老年代采用标记整理算法。cms采用标记清理。</p>
 <p>使用垃圾回收器的唯一原因是为了回收程序不再使用的内存。所以对于与垃圾回收有关的任何行为来说（尤其是finalize方法），他们也必须同内存及其回收有关。如果JVM并未面临内存耗尽的情形，它是不会花费时间去执行垃圾回收以恢复内存的。  </p>
 <p>最好是除了内存之外，不能依赖垃圾回收器做任何事情。如需清理，最好编写自己的清理方法，不要使用finalize()方法  </p>
 <p>当调用对象太多（我试了调用十万次）时，存储空间满了，会自动调用系统垃圾回收，强制进行终结的代码如下：  </p>
@@ -472,7 +493,12 @@
 <p>PriorityQueue:优先队列，它声明下一个弹出的是最需要的元素（最高的优先级）。comparator对象来改变排序（如果想在优先队列中使用自己的类，那么使用者就必须提供自己的Comparator）。</p>
 <p>迭代器：遍历选择序列中的对象。通常被称为轻量级对象，创建他的代价小。Java中的Iterator只能单向移动。  </p>
 <p>ListIterator只能用于List的访问，可以双向移动。</p>
-<h2 id="通过异常处理处理错误"><a href="#通过异常处理处理错误" class="headerlink" title="通过异常处理处理错误"></a>通过异常处理处理错误</h2><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h2 id="类型信息"><a href="#类型信息" class="headerlink" title="类型信息"></a>类型信息</h2><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h2 id="容器的深入研究"><a href="#容器的深入研究" class="headerlink" title="容器的深入研究"></a>容器的深入研究</h2><h2 id="Java-I-O系统"><a href="#Java-I-O系统" class="headerlink" title="Java I/O系统"></a>Java I/O系统</h2><h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2>
+<h2 id="通过异常处理处理错误"><a href="#通过异常处理处理错误" class="headerlink" title="通过异常处理处理错误"></a>通过异常处理处理错误</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	String i = <span class="keyword">null</span>;</div><div class="line">	<span class="comment">/*try &#123;</span></div><div class="line">		if (i == null) &#123;</div><div class="line">			throw new MyException("string is null");</div><div class="line">		&#125;</div><div class="line">	&#125; catch (MyException e) &#123;</div><div class="line">		// <span class="doctag">TODO:</span> handle exception</div><div class="line">		e.printStackTrace(System.out);//以控制台输出的方式输出异常信息</div><div class="line">//		for(StackTraceElement element:e.getStackTrace())//输出方法名这些</div><div class="line">//			System.out.println(element.getClassName()+"."+element.getMethodName()+"."+element.getLineNumber());</div><div class="line">	&#125;*/</div><div class="line">	f();</div><div class="line">	System.out.println(<span class="number">4</span>);</div><div class="line">	</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">try</span> &#123;</div><div class="line">		System.out.println(<span class="number">1</span>);</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> MyException(<span class="string">"2"</span>);</div><div class="line">	&#125; <span class="keyword">catch</span> (MyException e) &#123;</div><div class="line">		<span class="comment">// <span class="doctag">TODO:</span> handle exception</span></div><div class="line">		System.out.println(<span class="number">3</span>);</div><div class="line">	&#125;<span class="keyword">finally</span> &#123;</div><div class="line">		System.out.println(<span class="number">5</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">输出：</div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">5</span></div><div class="line"><span class="number">4</span></div><div class="line"><span class="comment">//在catch中再次抛出异常不能在外面捕获，应该也有作用域相关的问题。</span></div></pre></td></tr></table></figure>
+<p>当覆盖方法的时候，只能抛出基类方法的异常说明列出的那些异常。但这个异常限制对构造方法无用。派生构造器不能捕获基类构造器抛出的异常。一个出现在基类方法说明中的异常，不一定会出现在派生类中。不能通过异常说明来重载方法。  </p>
+<p>异常抛出之后，异常处理机制将搜寻参数<strong>与异常类型匹配的第一个处理程序</strong>，然后就不再查找。RuntimeException类型的异常属于错误，将被自动捕获，也称为<strong>不受检查异常</strong>。  </p>
+<p>新写一个异常时，抛出这个异常，通过捕获它的父类依然可以捕获到这个异常。catch Exception可以捕获到所有的异常。  </p>
+<p>所谓的把异常抛到更高层，就是在catch字句中，再次抛出。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">		System.out.println(<span class="number">1</span>);</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> MyException(<span class="string">"2"</span>);</div><div class="line">		</div><div class="line">	&#125; <span class="keyword">catch</span> (MyException e) &#123;</div><div class="line">		<span class="comment">// <span class="doctag">TODO:</span> handle exception</span></div><div class="line">		System.out.println(<span class="number">3</span>);</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h2 id="类型信息"><a href="#类型信息" class="headerlink" title="类型信息"></a>类型信息</h2><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h2 id="容器的深入研究"><a href="#容器的深入研究" class="headerlink" title="容器的深入研究"></a>容器的深入研究</h2><h2 id="Java-I-O系统"><a href="#Java-I-O系统" class="headerlink" title="Java I/O系统"></a>Java I/O系统</h2><h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2>
       
     </div>
 
