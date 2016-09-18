@@ -136,7 +136,7 @@
 持有对象
 通过异常处理处理错误
 字符">
-<meta property="og:updated_time" content="2016-09-18T03:33:31.567Z">
+<meta property="og:updated_time" content="2016-09-18T05:20:33.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java编程思想">
 <meta name="twitter:description" content="这篇博客全篇都是java的知识点，边看《Java编程思想》边写的，一天两天之内可能无法完成，但是我也肯定会在最近这几天内看完，然后再开始看一些网络知识了。当然我不能照着书全部重新敲一遍，我只是整理我觉得混淆的和以前并不清楚的东西。不全面也是正常了。  
@@ -498,7 +498,14 @@
 <p>异常抛出之后，异常处理机制将搜寻参数<strong>与异常类型匹配的第一个处理程序</strong>，然后就不再查找。RuntimeException类型的异常属于错误，将被自动捕获，也称为<strong>不受检查异常</strong>。  </p>
 <p>新写一个异常时，抛出这个异常，通过捕获它的父类依然可以捕获到这个异常。catch Exception可以捕获到所有的异常。  </p>
 <p>所谓的把异常抛到更高层，就是在catch字句中，再次抛出。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">		System.out.println(<span class="number">1</span>);</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> MyException(<span class="string">"2"</span>);</div><div class="line">		</div><div class="line">	&#125; <span class="keyword">catch</span> (MyException e) &#123;</div><div class="line">		<span class="comment">// <span class="doctag">TODO:</span> handle exception</span></div><div class="line">		System.out.println(<span class="number">3</span>);</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h2 id="类型信息"><a href="#类型信息" class="headerlink" title="类型信息"></a>类型信息</h2><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h2 id="容器的深入研究"><a href="#容器的深入研究" class="headerlink" title="容器的深入研究"></a>容器的深入研究</h2><h2 id="Java-I-O系统"><a href="#Java-I-O系统" class="headerlink" title="Java I/O系统"></a>Java I/O系统</h2><h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>String对象是不可变的，String中每一个看起来会修改String值的方法，实际上都是创建了一个新的String。  </p>
+<p>字符串想加时，编译器自动引入了StringBuilder类。因为它更高效。  </p>
+<p>append(a+”:”+c)这样的句子，编译器会另外创建一个StringBuilder来处理括号里的字符串操作。  </p>
+<p>StringBuilder是线程不安全的，StringBuffer线程安全，因此开销也更大。</p>
+<p><strong>正则表达式：</strong><br>-？:要找一个数字，可能有个-号在最前面；<br>\d:描述整数，\\:插入一个普通的斜杠；<br>+：一个或多个之前表达式。eg:-？\d+：最前面可能有一个负号，后面跟着一位或者多位数字；<br>[abc]= a|b|c  包含a,b,c的任意字符  </p>
+<p>[a-zA-Z]<br>[abc[ijk]] = a|b|c|i|j|k<br>\s：空白符<br>\S:非空白符<br>\d = [0-9]<br>\D = [^0-9]<br>\w = [a-zA-Z0-9]<br>\W = [^a-zA-Z0-9]<br>XY:X跟在Y的后面<br>X|Y:X或者Y<br>（X）:捕获组<br>\G:一个匹配的结束  </p>
+<p>Split():将字符串从正则表达式匹配的地方切开。  </p>
+<h2 id="类型信息"><a href="#类型信息" class="headerlink" title="类型信息"></a>类型信息</h2><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h2 id="容器的深入研究"><a href="#容器的深入研究" class="headerlink" title="容器的深入研究"></a>容器的深入研究</h2><h2 id="Java-I-O系统"><a href="#Java-I-O系统" class="headerlink" title="Java I/O系统"></a>Java I/O系统</h2><h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2>
       
     </div>
 
