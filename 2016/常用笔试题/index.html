@@ -108,10 +108,14 @@
 <meta property="og:url" content="http://monkeylluffy.github.io/2016/常用笔试题/index.html">
 <meta property="og:site_name" content="MonkeyLLuffy">
 <meta property="og:description" content="进程间通信：方式一：访问其他应用程序的ActivityActivity既可以在进程内（同一个应用程序）访问，也可以跨进程访问。Activity的跨进程访问与进程内访问略有不同。虽然它们都需要Intent对象，但跨进程访问并不需要指定Context对象和Activity的 Class对象，而需要指定的是要访问的Activity所对应的Action（一个字符串）。有些Activity还需要指定一个Ur">
-<meta property="og:updated_time" content="2016-09-19T03:17:44.598Z">
+<meta property="og:image" content="http://my.csdn.net/uploads/201204/17/1334628691_7836.png">
+<meta property="og:image" content="http://my.csdn.net/uploads/201204/17/1334628702_9553.png">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201211/29/1354170699_6619.png">
+<meta property="og:updated_time" content="2016-09-19T04:17:53.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用笔试题">
 <meta name="twitter:description" content="进程间通信：方式一：访问其他应用程序的ActivityActivity既可以在进程内（同一个应用程序）访问，也可以跨进程访问。Activity的跨进程访问与进程内访问略有不同。虽然它们都需要Intent对象，但跨进程访问并不需要指定Context对象和Activity的 Class对象，而需要指定的是要访问的Activity所对应的Action（一个字符串）。有些Activity还需要指定一个Ur">
+<meta name="twitter:image" content="http://my.csdn.net/uploads/201204/17/1334628691_7836.png">
 
 
 
@@ -323,6 +327,20 @@
 <li>实现由aidl文件生成的Java接口。</li>
 <li>在AndroidManifest.xml文件中配置AIDL服务，尤其要注意的是，<action>标签的android:name属性值就是客户端要引用该服务的ID，也就是Intent类构造方法的参数值。</action></li>
 </ol>
+<h2 id="Android-Service与Activity之间通信的几种方式"><a href="#Android-Service与Activity之间通信的几种方式" class="headerlink" title="Android Service与Activity之间通信的几种方式"></a>Android Service与Activity之间通信的几种方式</h2><p><strong>方式一：通过Binder对象</strong><br>Activity调用bindService (Intent service, ServiceConnection conn, int flags)方法，得到Service对象的一个引用，这样Activity可以直接调用到Service中的方法，如果要主动通知Activity，我们可以利用回调方法。   </p>
+<p><strong>方式二：通过broadcast(广播)的形式</strong><br>Service向Activity发送消息，可以使用广播，当然Activity要注册相应的接收器。比如Service要向多个Activity发送同样的消息的话，用这种方法就更好。  </p>
+<h2 id="Activity-Service-Fragment生命周期"><a href="#Activity-Service-Fragment生命周期" class="headerlink" title="Activity Service Fragment生命周期"></a>Activity Service Fragment生命周期</h2><p><strong>Activity</strong><br><img src="http://my.csdn.net/uploads/201204/17/1334628691_7836.png" alt="">  </p>
+<p><strong>Service</strong><br><img src="http://my.csdn.net/uploads/201204/17/1334628702_9553.png" alt=""></p>
+<p><strong>Fragment</strong><br><img src="http://img.my.csdn.net/uploads/201211/29/1354170699_6619.png" alt=""></p>
+<h2 id="Android中view和surfaceview的区别"><a href="#Android中view和surfaceview的区别" class="headerlink" title="Android中view和surfaceview的区别"></a>Android中view和surfaceview的区别</h2><p>使用的SurfaceView的时候，一般情况下要对其进行创建，销毁，改变时的情况进行监视，这就要用到 SurfaceHolder.Callback.   </p>
+<p>对于Surface相关的，Android底层还提供了GPU加速功能，所以一般实时性很强的应用中主要使用SurfaceView而不是直接从View构建，同时后来做android 3d OpenGL中的GLSurfaceView也是从该类实现。  </p>
+<p>SurfaceView和View最本质的区别在于，surfaceView是在一个新起的单独线程中可以重新绘制画面而View必须在UI的主线程中更新画面。   </p>
+<p>那么在UI的主线程中更新画面 可能会引发问题，比如你更新画面的时间过长，那么你的主UI线程会被你正在画的函数阻塞。那么将无法响应按键，触屏等消息。   </p>
+<p>当使用surfaceView 由于是在新的线程中更新画面所以不会阻塞你的UI主线程。但这也带来了另外一个问题，就是事件同步。比如你触屏了一下，你需要surfaceView中thread处理，一般就需要有一个event queue的设计来保存touch event，这会稍稍复杂一点，因为涉及到线程同步。 </p>
+<p>所以基于以上，根据游戏特点，一般分成两类。 </p>
+<p>1 被动更新画面的。比如棋类，这种用view就好了。因为画面的更新是依赖于 onTouch 来更新，可以直接使用 invalidate。 因为这种情况下，这一次Touch和下一次的Touch需要的时间比较长些，不会产生影响。 </p>
+<p>2 主动更新。比如一个人在一直跑动。这就需要一个单独的thread不停的重绘人的状态，避免阻塞main UI thread。所以显然view不合适，需要surfaceView来控制。</p>
+<p>3.Android中的SurfaceView类就是双缓冲机制。因此，开发游戏时尽量使用SurfaceView而不要使用View，这样的话效率较高，而且SurfaceView的功能也更加完善。</p>
 
       
     </div>
@@ -494,7 +512,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程间通信："><span class="nav-number">1.</span> <span class="nav-text">进程间通信：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程间通信："><span class="nav-number">1.</span> <span class="nav-text">进程间通信：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-Service与Activity之间通信的几种方式"><span class="nav-number">2.</span> <span class="nav-text">Android Service与Activity之间通信的几种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-Service-Fragment生命周期"><span class="nav-number">3.</span> <span class="nav-text">Activity Service Fragment生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android中view和surfaceview的区别"><span class="nav-number">4.</span> <span class="nav-text">Android中view和surfaceview的区别</span></a></li></ol></div>
             
           </div>
         </section>
