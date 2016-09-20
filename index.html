@@ -328,42 +328,12 @@
 
       
         
-          
-            <h2 id="进程间通信："><a href="#进程间通信：" class="headerlink" title="进程间通信："></a>进程间通信：</h2><p><strong>方式一：访问其他应用程序的Activity</strong><br>Activity既可以在进程内（同一个应用程序）访问，也可以跨进程访问。Activity的跨进程访问与进程内访问略有不同。虽然它们都需要Intent对象，但跨进程访问并不需要指定Context对象和Activity的 Class对象，而需要指定的是要访问的Activity所对应的Action（一个字符串）。有些Activity还需要指定一个Uri（通过 Intent构造方法的第2个参数指定）。  </p>
-<p><strong>方式二：Content Provider </strong><br>Android应用程序可以使用文件或SqlLite数据库来存储数据。Content Provider提供了一种在多个应用程序之间数据共享的方式（跨进程共享数据）。应用程序可以利用Content Provider完成下面的工作：  </p>
-<ol>
-<li>查询数据</li>
-<li>修改数据</li>
-<li>添加数据</li>
-<li>删除数据</li>
-</ol>
-<p><strong>方式三：广播（Broadcast）</strong>  </p>
-<p>在应用程序中发送广播比较简单。只需要调用sendBroadcast方法即可。该方法需要一个Intent对象。通过Intent对象可以发送需要广播的数据。发送广播并不需要在AndroidManifest.xml文件中注册，但接收广播必须在AndroidManifest.xml文件中注册 receiver（或者动态注册）。  </p>
-<p><strong>方式四：AIDL服务</strong>  </p>
-<p>服务（Service）是android系统中非常重要的组件。android系统中的Service主要有两个作用：后台运行和跨进程通讯。<br>AIDL的全称是Android Interface Definition Language，也就是说，AIDL实际上是一种接口定义语言。通过这种语言定义接口后，Eclipse插件（ODT）会自动生成相应的Java代码接 口代码。下面来看一下编写一个AIDL服务的基本步骤。</p>
-<ol>
-<li>在Eclipse工程的package目录中建立一个扩展名为aidl的文件。package目录就是Java类所在的目录。该文件的语法类似于Java代码。aidl文件中定义的是AIDL服务的接口。这个接口需要在调用AIDL服务的程序中访问。</li>
-<li>如果aidl文件的内容是正确的，Eclipse插件会自动生成一个Java接口文件（*.java）。</li>
-<li>建立一个服务类（Service的子类）。</li>
-<li>实现由aidl文件生成的Java接口。</li>
-<li>在AndroidManifest.xml文件中配置AIDL服务，尤其要注意的是，<action>标签的android:name属性值就是客户端要引用该服务的ID，也就是Intent类构造方法的参数值。</action></li>
-</ol>
-<h2 id="Android-Service与Activity之间通信的几种方式"><a href="#Android-Service与Activity之间通信的几种方式" class="headerlink" title="Android Service与Activity之间通信的几种方式"></a>Android Service与Activity之间通信的几种方式</h2><p><strong>方式一：通过Binder对象</strong><br>Activity调用bindService (Intent service, ServiceConnection conn, int flags)方法，得到Service对象的一个引用，这样Activity可以直接调用到Service中的方法，如果要主动通知Activity，我们可以利用回调方法。   </p>
-<p><strong>方式二：通过broadcast(广播)的形式</strong><br>Service向Activity发送消息，可以使用广播，当然Activity要注册相应的接收器。比如Service要向多个Activity发送同样的消息的话，用这种方法就更好。  </p>
-<h2 id="Activity-Service-Fragment生命周期"><a href="#Activity-Service-Fragment生命周期" class="headerlink" title="Activity Service Fragment生命周期"></a>Activity Service Fragment生命周期</h2><p><strong>Activity</strong><br><img src="http://my.csdn.net/uploads/201204/17/1334628691_7836.png" alt="">  </p>
-<p><strong>Service</strong><br><img src="http://my.csdn.net/uploads/201204/17/1334628702_9553.png" alt=""></p>
-<p><strong>Fragment</strong><br><img src="http://img.my.csdn.net/uploads/201211/29/1354170699_6619.png" alt=""></p>
-<h2 id="Android中view和surfaceview的区别"><a href="#Android中view和surfaceview的区别" class="headerlink" title="Android中view和surfaceview的区别"></a>Android中view和surfaceview的区别</h2><p>使用的SurfaceView的时候，一般情况下要对其进行创建，销毁，改变时的情况进行监视，这就要用到 SurfaceHolder.Callback.   </p>
-<p>对于Surface相关的，Android底层还提供了GPU加速功能，所以一般实时性很强的应用中主要使用SurfaceView而不是直接从View构建，同时后来做android 3d OpenGL中的GLSurfaceView也是从该类实现。  </p>
-<p>SurfaceView和View最本质的区别在于，surfaceView是在一个新起的单独线程中可以重新绘制画面而View必须在UI的主线程中更新画面。   </p>
-<p>那么在UI的主线程中更新画面 可能会引发问题，比如你更新画面的时间过长，那么你的主UI线程会被你正在画的函数阻塞。那么将无法响应按键，触屏等消息。   </p>
-<p>当使用surfaceView 由于是在新的线程中更新画面所以不会阻塞你的UI主线程。但这也带来了另外一个问题，就是事件同步。比如你触屏了一下，你需要surfaceView中thread处理，一般就需要有一个event queue的设计来保存touch event，这会稍稍复杂一点，因为涉及到线程同步。 </p>
-<p>所以基于以上，根据游戏特点，一般分成两类。 </p>
-<p>1 被动更新画面的。比如棋类，这种用view就好了。因为画面的更新是依赖于 onTouch 来更新，可以直接使用 invalidate。 因为这种情况下，这一次Touch和下一次的Touch需要的时间比较长些，不会产生影响。 </p>
-<p>2 主动更新。比如一个人在一直跑动。这就需要一个单独的thread不停的重绘人的状态，避免阻塞main UI thread。所以显然view不合适，需要surfaceView来控制。</p>
-<p>3.Android中的SurfaceView类就是双缓冲机制。因此，开发游戏时尽量使用SurfaceView而不要使用View，这样的话效率较高，而且SurfaceView的功能也更加完善。</p>
-
-          
+          <h2 id="进程间通信："><a href="#进程间通信：" class="headerlink" title="进程间通信："></a>进程间通信：</h2><p><strong>方式一：访问其他应用程序的Activity</strong><br>Activity既可以在进程内（同一个应用程序）访问，也可以跨进程访问。Activity的跨进程访问与进程内访问略有不同。虽然它们都需要Intent对象，但跨进程访问并不需要指定Context对象和Activity的 Class对象，而需要指定的是要访问的Activity所对应的Action（一个字符串）。有些Activity还需要指定一个Uri（通过 Intent构造方法的第2个参数指定）。  </p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/常用笔试题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

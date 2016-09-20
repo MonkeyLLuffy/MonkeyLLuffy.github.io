@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://my.csdn.net/uploads/201204/17/1334628691_7836.png">
 <meta property="og:image" content="http://my.csdn.net/uploads/201204/17/1334628702_9553.png">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201211/29/1354170699_6619.png">
-<meta property="og:updated_time" content="2016-09-20T07:56:17.655Z">
+<meta property="og:updated_time" content="2016-09-20T07:58:52.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用笔试题">
 <meta name="twitter:description" content="进程间通信：方式一：访问其他应用程序的ActivityActivity既可以在进程内（同一个应用程序）访问，也可以跨进程访问。Activity的跨进程访问与进程内访问略有不同。虽然它们都需要Intent对象，但跨进程访问并不需要指定Context对象和Activity的 Class对象，而需要指定的是要访问的Activity所对应的Action（一个字符串）。有些Activity还需要指定一个Ur">
@@ -328,6 +328,7 @@
 
       
         <h2 id="进程间通信："><a href="#进程间通信：" class="headerlink" title="进程间通信："></a>进程间通信：</h2><p><strong>方式一：访问其他应用程序的Activity</strong><br>Activity既可以在进程内（同一个应用程序）访问，也可以跨进程访问。Activity的跨进程访问与进程内访问略有不同。虽然它们都需要Intent对象，但跨进程访问并不需要指定Context对象和Activity的 Class对象，而需要指定的是要访问的Activity所对应的Action（一个字符串）。有些Activity还需要指定一个Uri（通过 Intent构造方法的第2个参数指定）。  </p>
+<a id="more"></a>
 <p><strong>方式二：Content Provider </strong><br>Android应用程序可以使用文件或SqlLite数据库来存储数据。Content Provider提供了一种在多个应用程序之间数据共享的方式（跨进程共享数据）。应用程序可以利用Content Provider完成下面的工作：  </p>
 <ol>
 <li>查询数据</li>
