@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://my.csdn.net/uploads/201204/17/1334628691_7836.png">
 <meta property="og:image" content="http://my.csdn.net/uploads/201204/17/1334628702_9553.png">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201211/29/1354170699_6619.png">
-<meta property="og:updated_time" content="2016-09-25T14:08:49.725Z">
+<meta property="og:updated_time" content="2016-09-27T08:52:22.410Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用笔试题">
 <meta name="twitter:description" content="进程间通信：方式一：访问其他应用程序的ActivityActivity既可以在进程内（同一个应用程序）访问，也可以跨进程访问。Activity的跨进程访问与进程内访问略有不同。虽然它们都需要Intent对象，但跨进程访问并不需要指定Context对象和Activity的 Class对象，而需要指定的是要访问的Activity所对应的Action（一个字符串）。有些Activity还需要指定一个Ur">
@@ -385,6 +385,27 @@
 <p>11、<strong>策略模式</strong>：<br>举例：Java.util.List就是定义了一个增（add）、删（remove）、改（set）、查（indexOf）策略，至于实现这个策略的ArrayList、LinkedList等类，只是在具体实现时采用了不同的算法。但因为它们策略一样，不考虑速度的情况下，使用时完全可以互相替换使用。<br>简介：定义了一系列封装了算法、行为的对象，他们可以相互替换。</p>
 <p>12、<strong>调解者模式</strong><br>简介：一个对象的某个操作需要调用N个对象的M个方法来完成时，把这些调用过程封装起来，就成了一个调解者<br>举例：如Resource.getDrawable方法的实现逻辑是这样的：创建一个缓存来存放所有已经加载过的，如果getDrawable中传入的id所对应的Drawable以前没有被加载过，那么它就会根据id所对应的资源类型，分别调用XML解析器生成，或者通过读取包中的图片资源文件来创建Drawable。而Resource.getDrawable把涉及到多个对象、多个逻辑的操作封装成一个方法，就实现了一个调解者的角色。   </p>
 <p>13、<strong>抽象工厂模式</strong><br>DAO与Service的使用  </p>
+<h2 id="硬件加速"><a href="#硬件加速" class="headerlink" title="硬件加速"></a>硬件加速</h2><p>在Android艺术探索中看到一句话：绝大多数情况下，硬件加速都可以解决莫名其妙的卡顿问题。通过设置android:hardwareAccelerated = “true”即可为Activity开启硬件加速。那么问题来了：什么叫硬件加速？它的原理是什么？  </p>
+<p>Android从3.0（API Level 11）开始，在绘制View的时候支持硬件加速，充分利用GPU的特性，使得绘制更加平滑，但是会多消耗一些内存。</p>
+<p> 理解View的绘制模型：invalidate（）重绘</p>
+<ol>
+<li><p>没有硬件加速：步骤如下：<br> Invalidate the hierarchy（注：hierarchy怎么翻译？）<br>  Draw the hierarchy  </p>
+<p> 应用程序调用invalidate()更新UI的某一部分，失效(invalidation)消息将会在整个视图层中传递，计算每个需要重绘的区域（即脏区域）。然后Android系统将会重绘所有和脏区域有交集的view。很明显，这种绘图模式存在缺点：  </p>
+<p>  每个绘制操作中会执行不必要的代码。比如如果应用程序调用invalidate()重绘button，而button又位于另一个view之上，即使该view没有变化，也会进行重绘。  </p>
+<p>  可能会掩盖一些应用程序的bug。因为android系统会重绘与脏区域有交集的view，所以view的内容可能会在没有调用invalidate()的情况下重绘。这可能会导致一个view依赖于其它view的失效才得到正确的行为。  </p>
+</li>
+<li><p>有硬件加速：<br> Android系统仍然使用invalidate()和draw()来绘制view，但在处理绘制上有所不同。Android系统记录绘制命令到显示列表，而不是立即执行绘制命令。另一个优化就是Android系统只需记录和更新标记为脏（通过invalidate()）的view。新的绘制模型包含三个步骤：  </p>
+<p>  Invalidate the hierarchy  </p>
+<p>  记录和更新显示列表  </p>
+<p>  绘制显示列表  </p>
+</li>
+</ol>
+<h2 id="线程和进程的区别联系"><a href="#线程和进程的区别联系" class="headerlink" title="线程和进程的区别联系"></a>线程和进程的区别联系</h2><ol>
+<li>进程：子进程是父进程的复制品。子进程获得父进程数据空间、堆和栈的复制品。</li>
+<li>线程：相对与进程而言，线程是一个更加接近与执行体的概念，它可以与同进程的其他线程共享数据，但拥有自己的栈空间，拥有独立的执行序列。   </li>
+</ol>
+<p>两者都可以提高程序的并发度，提高程序运行效率和响应时间。<br>线程和进程在使用上各有优缺点：线程执行开销小，但不利于资源管理和保护；而进程正相反。同时，线程适合于在SMP机器上运行，而进程则可以跨机器迁移。  </p>
+<p>根本区别就一点：用多进程每个进程有自己的地址空间(address space)，线程则共享地址空间。所有其它区别都是由此而来的：<br>    1、速度：线程产生的速度快，线程间的通讯快、切换快等，因为他们在同一个地址空间内。<br>    2、资源利用率：线程的资源利用率比较好也是因为他们在同一个地址空间内。<br>    3、同步问题：线程使用公共变量/内存时需要使用同步机制还是因为他们在同一个地址空间内  </p>
 
       
     </div>
@@ -425,6 +446,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/短板/" rel="prev" title="短板">
+                短板 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -492,7 +517,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -509,7 +534,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -558,7 +583,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程间通信："><span class="nav-number">1.</span> <span class="nav-text">进程间通信：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-Service与Activity之间通信的几种方式"><span class="nav-number">2.</span> <span class="nav-text">Android Service与Activity之间通信的几种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-Service-Fragment生命周期"><span class="nav-number">3.</span> <span class="nav-text">Activity Service Fragment生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android中view和surfaceview的区别"><span class="nav-number">4.</span> <span class="nav-text">Android中view和surfaceview的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓扑排序"><span class="nav-number">5.</span> <span class="nav-text">拓扑排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回溯"><span class="nav-number">6.</span> <span class="nav-text">回溯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小生成树"><span class="nav-number">7.</span> <span class="nav-text">最小生成树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android涉及到的设计模式"><span class="nav-number">8.</span> <span class="nav-text">Android涉及到的设计模式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程间通信："><span class="nav-number">1.</span> <span class="nav-text">进程间通信：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-Service与Activity之间通信的几种方式"><span class="nav-number">2.</span> <span class="nav-text">Android Service与Activity之间通信的几种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-Service-Fragment生命周期"><span class="nav-number">3.</span> <span class="nav-text">Activity Service Fragment生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android中view和surfaceview的区别"><span class="nav-number">4.</span> <span class="nav-text">Android中view和surfaceview的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓扑排序"><span class="nav-number">5.</span> <span class="nav-text">拓扑排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回溯"><span class="nav-number">6.</span> <span class="nav-text">回溯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小生成树"><span class="nav-number">7.</span> <span class="nav-text">最小生成树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android涉及到的设计模式"><span class="nav-number">8.</span> <span class="nav-text">Android涉及到的设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件加速"><span class="nav-number">9.</span> <span class="nav-text">硬件加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程和进程的区别联系"><span class="nav-number">10.</span> <span class="nav-text">线程和进程的区别联系</span></a></li></ol></div>
             
           </div>
         </section>
