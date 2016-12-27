@@ -266,6 +266,936 @@
             
               
                 
+                <a class="post-title-link" href="/2016/flexex-java/" itemprop="url">
+                  flexex_java
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-26T16:08:26+08:00" content="2016-12-26">
+              2016-12-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>进入bug项目组，组长说要我们做个小测试，用flex做一个列表显示省市的。后台代码本身并没有什么难度，但是因为是使用flex来做前端，这是完全没接触过的语言，心里有点发憷，但还是硬着头皮研究学习做了一个demo.  </p>
+<p>学flex对于学过java的人来说没什么难度，对于学过android的人来说更没什么难度；唯一不是很了解的是他的API，然而我们组长很贴心的教我使用myeclipse中的基础使用工具，然后感觉根本不需要API了，哈哈哈，组长万岁！  </p>
+<p>首先是我的demo,一个简单的省市的代码,当然，从代码里就可以看出，很多功能并没有实现，只是做了简单的列表展示：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">	&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">	&lt;mx:Module xmlns:mx=&quot;http://www.adobe.com/2006/mxml&quot;</div><div class="line">		   width=&quot;100%&quot;</div><div class="line">		   height=&quot;100%&quot;</div><div class="line">		   xmlns:ns1=&quot;views.common.*&quot;</div><div class="line">		   creationComplete=&quot;init()&quot;&gt;</div><div class="line">	&lt;mx:Style source=&quot;city.css&quot;/&gt;</div><div class="line">	&lt;mx:Script&gt;</div><div class="line">		&lt;![CDATA[</div><div class="line">			import mx.controls.Alert;</div><div class="line">			import mx.rpc.events.ResultEvent;</div><div class="line">			import mx.rpc.events.FaultEvent;</div><div class="line">			import mx.events.CloseEvent;</div><div class="line">			import mx.collections.ArrayCollection;</div><div class="line">			import com.common.ActionAlert;</div><div class="line">			import com.common.PubFunction;</div><div class="line">			import mx.rpc.http.HTTPService;</div><div class="line">			import com.adobe.serialization.json.JSON;</div><div class="line">			import mx.modules.ModuleLoader;</div><div class="line"></div><div class="line">			private var objUserInfo:Object=&#123;&#125;;</div><div class="line">			private var loginObj:Object=&#123;&#125;;</div><div class="line">			//可绑定变量</div><div class="line">			[Bindable]</div><div class="line">			private var serverResponse:String=&quot;&quot;;</div><div class="line">			//可绑定变量</div><div class="line">			[Bindable]</div><div class="line">			public var provinceDataArray:ArrayCollection=new ArrayCollection();</div><div class="line"></div><div class="line">			//初始化UI权限</div><div class="line">			private function init():void</div><div class="line">			&#123;</div><div class="line">				//获取登录用户信息</div><div class="line">				objUserInfo=this.parentApplication.userLogInInfo;</div><div class="line">				sear();</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			private function sear():void</div><div class="line">			&#123;</div><div class="line">				loginObj.USER_NAME=objUserInfo.USER.USER_CODE;</div><div class="line">				loginObj.PASSWORD=objUserInfo.USER.USER_PWD;</div><div class="line"></div><div class="line">				var srv:HTTPService=new HTTPService();</div><div class="line">				var params:Object=&#123;&#125;;</div><div class="line">				var obj:Object=new Object();</div><div class="line">				obj[&quot;PROVINCE_NAME&quot;]=&quot;重庆&quot;;</div><div class="line">				srv.method=&quot;POST&quot;;</div><div class="line">				srv.resultFormat=&quot;text&quot;;</div><div class="line">				srv.url=&quot;http://localhost:8080/A1_BILL/City/getPrivinceList.do&quot;;</div><div class="line">				params.USER_NAME=loginObj.USER_NAME;</div><div class="line">				params.PASSWORD=loginObj.PASSWORD;</div><div class="line">				params[&quot;JSONDATA&quot;]=JSON.encode(obj);</div><div class="line">				srv.send(params);</div><div class="line">				//事件绑定</div><div class="line">				srv.addEventListener(ResultEvent.RESULT, successHandler);</div><div class="line">				srv.addEventListener(FaultEvent.FAULT, errorHandler);</div><div class="line"></div><div class="line">			&#125;</div><div class="line"></div><div class="line">		</div><div class="line"></div><div class="line">			private function successHandler(evt:ResultEvent):void</div><div class="line">			&#123;</div><div class="line">				var srv:HTTPService=evt.target as HTTPService;</div><div class="line">				var resultObj=JSON.decode(srv.lastResult.toString());</div><div class="line">				var returnValue=resultObj.returnValue;</div><div class="line">				//刷新角色列表 结果成功或失败情况</div><div class="line">				if (resultObj.returnType == &quot;ERROR&quot;)</div><div class="line">				&#123;</div><div class="line">					ActionAlert.errorInfo(&quot;刷新列表失败&quot;);</div><div class="line">					return;</div><div class="line">				&#125;</div><div class="line">				provinceDataArray=new ArrayCollection(returnValue);</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			private function errorHandler(event:FaultEvent):void</div><div class="line">			&#123;</div><div class="line">				serverResponse=event.message.toString();</div><div class="line">				ActionAlert.errorInfo(&quot;加载列表失败&quot;);</div><div class="line">				trace(event.message);</div><div class="line">			&#125;</div><div class="line">		]]&gt;</div><div class="line">	&lt;/mx:Script&gt;</div><div class="line">	&lt;mx:VBox left=&quot;2&quot;</div><div class="line">			 right=&quot;2&quot;</div><div class="line">			 top=&quot;30&quot;</div><div class="line">			 bottom=&quot;2&quot;</div><div class="line">			 width=&quot;100%&quot;</div><div class="line">			 height=&quot;100%&quot;&gt;</div><div class="line">		&lt;mx:HBox width=&quot;100%&quot;</div><div class="line">				 height=&quot;5%&quot;&gt;</div><div class="line">			&lt;mx:ApplicationControlBar styleName=&quot;ModAppCtrlBar&quot;</div><div class="line">									  dock=&quot;true&quot;</div><div class="line">									  width=&quot;100%&quot;</div><div class="line">									  height=&quot;100%&quot;</div><div class="line">									  color=&quot;#000000&quot;&gt;</div><div class="line">				</div><div class="line">				&lt;mx:HBox width=&quot;100%&quot;</div><div class="line">						 horizontalAlign=&quot;right&quot;&gt;</div><div class="line">					&lt;ns1:title_menu id=&quot;title_menu&quot; listFlag=&quot;true&quot;  listLength = &quot;&#123;this.provinceDataArray.length&#125;&quot; barColor=&quot;#FA3E3E&quot;/&gt;</div><div class="line">				&lt;/mx:HBox&gt;</div><div class="line">			&lt;/mx:ApplicationControlBar&gt;</div><div class="line">		&lt;/mx:HBox&gt;</div><div class="line">		&lt;mx:HBox width=&quot;100%&quot;</div><div class="line">				 height=&quot;5%&quot;&gt;</div><div class="line">			&lt;mx:VBox height=&quot;100%&quot;</div><div class="line">					 width=&quot;15%&quot;</div><div class="line">					 verticalAlign=&quot;middle&quot;&gt;</div><div class="line">				&lt;mx:FormItem label=&quot;城市&quot;</div><div class="line">							 width=&quot;100%&quot;</div><div class="line">							 fontWeight=&quot;normal&quot;</div><div class="line">							 horizontalCenter=&quot;center&quot;&gt;</div><div class="line">					&lt;mx:TextInput width=&quot;100%&quot;</div><div class="line">								  id=&quot;edtUserCode&quot;/&gt;</div><div class="line">				&lt;/mx:FormItem&gt;</div><div class="line">			&lt;/mx:VBox&gt;</div><div class="line">			&lt;mx:VBox height=&quot;100%&quot;</div><div class="line">					 width=&quot;15%&quot;</div><div class="line">					 verticalAlign=&quot;middle&quot;&gt;</div><div class="line">				&lt;mx:FormItem label=&quot;省&quot;</div><div class="line">							 width=&quot;100%&quot;</div><div class="line">							 fontWeight=&quot;normal&quot;&gt;</div><div class="line">					&lt;mx:TextInput width=&quot;100%&quot;</div><div class="line">								  id=&quot;edtUserName&quot;/&gt;</div><div class="line">				&lt;/mx:FormItem&gt;</div><div class="line">			&lt;/mx:VBox&gt;</div><div class="line">			&lt;mx:HBox height=&quot;100%&quot;</div><div class="line">					 width=&quot;15%&quot;</div><div class="line">					 verticalAlign=&quot;middle&quot;&gt;</div><div class="line">				&lt;mx:Button label=&quot;检索&quot;</div><div class="line">						   id=&quot;btnSearch&quot;</div><div class="line">						   click=&quot;sear()&quot;/&gt;</div><div class="line">				&lt;mx:Button label=&quot;重置&quot;</div><div class="line">						   id=&quot;btnReset&quot;</div><div class="line">						   click=&quot;returnReset()&quot;/&gt;</div><div class="line">				&lt;ns1:site_str_search id=&quot;siteid&quot;/&gt;</div><div class="line">			&lt;/mx:HBox&gt;</div><div class="line">		&lt;/mx:HBox&gt;</div><div class="line">		&lt;mx:VBox height=&quot;100%&quot;</div><div class="line">				 width=&quot;100%&quot;&gt;</div><div class="line">			&lt;mx:DataGrid id=&quot;gdProvince&quot;</div><div class="line">						 dataProvider=&quot;&#123;provinceDataArray&#125;&quot;</div><div class="line">						 width=&quot;100%&quot;</div><div class="line">						 height=&quot;100%&quot;&gt;</div><div class="line">				&lt;mx:columns&gt;</div><div class="line">					&lt;mx:DataGridColumn headerText=&quot;编号&quot;</div><div class="line">									   dataField=&quot;PROVINCE_ID&quot;/&gt;</div><div class="line">					&lt;mx:DataGridColumn headerText=&quot;名字&quot;</div><div class="line">									   dataField=&quot;PROVINCE_NAME&quot;/&gt;</div><div class="line">					&lt;mx:DataGridColumn headerText=&quot;拼音&quot;</div><div class="line">									   dataField=&quot;PROVINCE_PINYIN&quot;</div><div class="line">									   editable=&quot;false&quot;/&gt;</div><div class="line">					&lt;mx:DataGridColumn headerText=&quot;简称&quot;</div><div class="line">									   dataField=&quot;PROVINCE_SHORT&quot;</div><div class="line">									   editable=&quot;false&quot;/&gt;</div><div class="line">				&lt;/mx:columns&gt;</div><div class="line">			&lt;/mx:DataGrid&gt;</div><div class="line">		&lt;/mx:VBox&gt;</div><div class="line">	&lt;/mx:VBox&gt;</div><div class="line">&lt;/mx:Module&gt;</div></pre></td></tr></table></figure>
+<p>在网络链接的模块  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var srv:HTTPService=new HTTPService();</div><div class="line">var params:Object=&#123;&#125;;</div><div class="line">var obj:Object=new Object();</div><div class="line">obj[&quot;PROVINCE_NAME&quot;]=&quot;重庆&quot;;</div><div class="line">srv.method=&quot;POST&quot;;</div><div class="line">srv.resultFormat=&quot;text&quot;;</div><div class="line">srv.url=&quot;http://localhost:8080/A1_BILL/City/getPrivinceList.do&quot;;</div><div class="line">params.USER_NAME=loginObj.USER_NAME;</div><div class="line">params.PASSWORD=loginObj.PASSWORD;</div><div class="line">params[&quot;JSONDATA&quot;]=JSON.encode(obj);</div><div class="line">srv.send(params);</div><div class="line">//事件绑定</div><div class="line">srv.addEventListener(ResultEvent.RESULT, successHandler);</div><div class="line">srv.addEventListener(FaultEvent.FAULT, errorHandler);</div></pre></td></tr></table></figure>
+<p>这里面的网络模块与android的网络链接几乎一模一样，实例化，配置地址，配置参数，然后回调，成功或是失败的函数，然后对成功之后或者失败之后进行对应的处理；  </p>
+<p>actionScript对于mxml就像js对于html，然而actionScript是一种介于java和js的语言，java通过import,js通过引入js文件；里面的很多控件像是包装了的easyUi一样，自动装载json数据，在dataGrid中，自动解析json数据，都不需要像之前html一样一点一点拼接。  </p>
+<p>而其他的代码因为和android太像，根本没什么好说的，更多的就是对控件的熟悉了。  </p>
+<p>开发的界面如图，与VS开发C#类似的：<br><img src="http://i.imgur.com/ZMouQge.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/关于实习项目（合同管理系统）感想/" itemprop="url">
+                  关于实习项目（合同管理系统）感想
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-07T17:24:10+08:00" content="2016-12-07">
+              2016-12-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>来上海已经是一个月有余了，在这一个月中有不开心的时候，有想离开的时候，但终究还是坚持下来，成就感还是棒棒的。这一个月对我来说最值得一提的应该是前后整个周期大概20天的这个合同管理系统了。  </p>
+<p>对于我来说，这个系统就像是我的亲女儿一样，从项目的选定，项目的需求，产品的设计，最终的实现我都有参与。以前在实验室不是没有参与过项目，但是参与度这么高的，让我这么有使命感的还是第一个。  </p>
+<p>这个项目是作为测试项目还是实际项目，到现在也不是很清楚，但是我们都尽了我们的全力做了我们能做的事情。  </p>
+<p>前期带着产品运营们走上正轨的那些时间没什么好说的，从开始准备做开发工作的时候，我们</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/记一个周六2016年12月3日/" itemprop="url">
+                  记一个周六2016年12月3日
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-03T11:14:08+08:00" content="2016-12-03">
+              2016-12-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>尽早做了一个梦，很甜蜜很少女的梦，在这个梦里，有个我认不得的少年，他温文尔雅，似乎有着宠溺的眼神，有着包容的心态，有着纵容的行为，我似乎能感觉到他看我的眼神是充满着爱的，似乎我做什么都可以的那种眼神。  </p>
+<p>早上醒来之后，又想快进入那个梦，但是又害怕梦的风格急转直下，不敢继续睡。  </p>
+<p>本来是个挺开心的梦，但写着写着又忍不住说到我自己的现状，我不能相信似乎世界上有爱这种东西，因为我本人是如此的冷漠，在内心中一次又一次的计算。  </p>
+<p>说起来，现在是几乎快要吃饭的中午，我感觉很恶心，也可以说是伤心，因为这种伤心让我感觉很恶心。  </p>
+<p>原因大概在于一盘饺子吧，我不喜欢别人用我吃饭的饭碗，秋贪图便宜买了几毛钱一个的塑料碗，但是拿我吃饭的碗来做调料碗，我感觉十分不开心。  </p>
+<p>我不喜欢在饭碗上计较，但是明明可以拥有的东西你不用却要占用了我的，我恶心到了。然后我打麻将，一粒饺子都没给我留也让我伤心，但这种伤心让我觉得更加恶心</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/遇到的问题/" itemprop="url">
+                  遇到的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-06T18:08:42+08:00" content="2016-11-06">
+              2016-11-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="2016-11-06"><a href="#2016-11-06" class="headerlink" title="2016-11-06"></a>2016-11-06</h2><ol>
+<li>GridView的Adapter怎么设置？（GridAdapter继承BaseAdapter,最普通的adapter,还可以试试SimpleAdapter）</li>
+<li>GridView怎么获取坐标？（得到每个item的宽和高，然后getX和getY，最后通过除法得到X,Y的坐标）</li>
+<li>连连看怎么保证绝对有解的？(1.最简单就是一次创建两个,图标,这样可以同时检查他们是否可消去,保证游戏有解.2.)</li>
+<li>连连看的难度设置（关卡）</li>
+<li>刷新页面</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/大冰作品/" itemprop="url">
+                  大冰作品
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-04T16:20:39+08:00" content="2016-11-04">
+              2016-11-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/读书观影/" itemprop="url" rel="index">
+                    <span itemprop="name">读书观影</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>从一个人的文字中，其实最能够了解一个人，要是几十万几百万的字都撒谎的话也太难了。  </p>
+<p>他不是正统的文学人士，他的江湖气息很浓重，身份也是很多重的。  </p>
+<p>从几本书的文字中可以看到，他对主持这个身份颇不以为然，但让一众读者不理解的是为什么他还要维持这个身份？我猜想了几种可能，也行他希望不要过着一种生活（他说过最多在丽江也只呆15天），若是少了一重身份，也就意味着他的生活相对来说更单调了；也许是他虽然对那个圈子不以为然，但是他对主持这个职业还是喜欢的。  </p>
+<p>现在很多人骑行拉萨，或者青藏地旅行，我今年坐了几趟青藏线的火车，听到的都是骑行路上的事情，提西藏的反而很少，从他们的只言片语中，几乎都是说各种坑爹的事情。从大冰的大片的文字中，我能感觉到他对拉萨的深深的怀念。  </p>
+<p>现在有句话叫“因为一个人，爱上一座城”，但我想很多事情不是那么简单的，在一个地方呆得久了，似乎这个地方也成为了一个朋友，一个永远不会离开的朋友。我想，很多老年人的家乡情结应该也是这样吧。  </p>
+<p>在他笔下更加浓墨重彩描写的是丽江，丽江这个地方哦，被称为艳遇之都，大冰一遍又一遍的说，丽江并不是只有艳遇，而酒吧街的酒吧并不是真正的丽江特色酒吧，在他的故事里，路平、大军、大树都开了酒吧，在我们心中，泡酒吧的孩子都不是好孩子，但是在大冰的小屋里只有啤酒，只有民谣，只有吉他和手鼓，其他的什么艳遇都与它无关。  </p>
+<p>我还是一个实用主义者，每次看到书中的浪漫主义者一遍一遍犯傻的时候，我都想如果是我怎么怎么，但终究只是如果。我终究还是是个实用主义者，甚至连看书的目的我都不知道是否单纯。  </p>
+<p>这个世上还是需要很多傻子的，看着看着我甚至是羡慕这些傻子的，连大冰都是羡慕的吧，因为傻，才能纯粹的热爱，因为傻，在被爱或者爱的时候都能百分百的付出，大军卖唱超过150就给妻子买一条裙子，直到衣柜装不下也继续买，她的妻子甚至是在炫耀幸福的让大冰去交大军不要买了，或者买点其他也行，她为他放弃学业，一心跟着他，傻不傻？我认为傻透了，明明可以完成学业之后再爱，但是她是那么义无反顾，最终得到的爱人人羡慕。  </p>
+<p>这些傻子啊，都是得到了傻福的人。我最终也还是做不到傻傻的过的吧，就算是蠢笨如我，也还是实用主义者。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/first-job/" itemprop="url">
+                  first job
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-04T15:19:16+08:00" content="2016-11-04">
+              2016-11-04
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/找工作之后/" itemprop="url">
+                  找工作之后
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-22T16:20:29+08:00" content="2016-10-22">
+              2016-10-22
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>离找工作开始已经两个月，其实这里面还是得到不少教训。但至少除了拒绝了thoughtworks的面试稍微有点遗憾，其他的真的没什么遗憾了。确实我复习的力度不过，虽说认真看书但也是走马观花，看得不够深入是一回事，看了之后没有融入自己的思考也是一个重要的原因。  </p>
+<p>不得不说的是，自己到现在为止只有一个offer，弄得自己失去了斗志，书不想看，代码没怎么写，整天就看着动漫，然后心里一片茫然，我记得刚开始的时候，我对自己说，不要管别人，跟着自己的节奏就行。但讲真，我确实是被别人的节奏影响着的。BAT一个不想放过，但一个都没有过，然后慢慢的笔试成绩变好之后，面试也一个不想放过，这种就是完全的广撒网捞鱼，所以到现在一条大鱼都没钓到。  </p>
+<p>到这会儿，我想问自己，我是想得到明年的大鱼，还是一条鱼都不想放过呢？明年的湖里还会不会有大鱼呢？  </p>
+<p>现在是10月22号，我到底该如何做呢？  </p>
+<p>恭喜我，我又茫然了，本来以为是已经得到答案才来写博客，但我发现自己终究还是不甘心，所以我要放弃和刘鑫她们一起去上海还是放弃找工作然后安心准备明年的春招呢？</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/读《黑白》有感/" itemprop="url">
+                  读《黑白》有感
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-07T12:35:18+08:00" content="2016-10-07">
+              2016-10-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/读书观影/" itemprop="url" rel="index">
+                    <span itemprop="name">读书观影</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>《黑白》这本书从情节上来看，是讲述陶羊子的从一个小孩，然后爱上围棋并逐步成为棋王的故事。他自小失去双亲，对白有着一种执着，当他把白棋下得极好，收到总督府上照拂的时候被他的老乡齐天勤一举打败并且把他送入他的人生第一个底端，然后他的舅舅也出事了……随后还有几次的大起大落，当他的人生最终归于平静的时候，他还是爱着棋，尽管中间有恨过棋，但最终还是爱的。  </p>
+<p>当然，一般人不会有这般境遇的。  </p>
+<p>我大概也喜欢上下围棋了吧。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/再见，成都/" itemprop="url">
+                  再见，成都
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-30T08:55:30+08:00" content="2016-09-30">
+              2016-09-30
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>找工作已经接近一个月，从9月5号开始做京东的第一个笔试开始。这最开始的20天（24号以前），基本没有接到任何的面试电话，我知道是我太弱了，原因什么的我已经不想分析了，因为了然于心。  </p>
+<p>最开始到成都，住在刘鑫的朋友（小兰）家里，在青羊区512成飞小区，这里是成飞集团的地盘，最开始那几天几乎没出过他们的势力范围。其实这个地方还比较好，离得不远的地方有地铁。在这里住的几天，我们买了盆子，买了垃圾桶，买了电饭煲。小兰家里有网络，有电磁炉……很方便，很想好好谢谢她。  </p>
+<p>这一段日子，回想起来一片模糊，除了复习，除了做笔试，除了做饭吃饭，除了看了一部进击的巨人，我几乎已经想不起来我爱做了什么事情。  </p>
+<p>在成都，才知道重庆好得让我想念。这里的三轮让我很不习惯，他们不惧任何交通规则，除了穿绿色衣服的交通管制能让他们收敛下；这些三轮有时候会让你觉得很方便，但那天那个阿姨大晚上不认识路带着我乱走，而且还没送我到最终的目的地；但那天早上有个三轮也很让我感谢，那天是去西南财大笔试的一天，自前一天晚上被一个阿姨开的三轮在路上丢下了之后我心里十分的不情愿，但是为了不迟到还是坐的三轮去，这个大叔路上偶尔和我聊聊天，答应送我到财经大学东门5块钱，没出门在异乡的人不会知道一两块钱对你有什么意义。即使就是免了我两块钱，我还是十分感谢。以致于我笔试发挥好得出奇。  </p>
+<p>面试的详情，我后面再总结。我记得那是18号，微店的宣讲会加笔试，在四川大学江安校区，这个地方离我们住的地方很远，我们三点钟出门，先去项俊超家里拿东西然后再去，打滴滴，走路，坐公交车，打印简历，一路觉得很远很远，终于到达之后（向俊超的伞一下子就被吹坏了……路边卖的真让人的有点不放心呐），有个美女带我们走到了楼下（PS：他们学校真的太大了），晚上回来的时候，饿极了，找个门出去，结果发现校门都关了，下着大雨我们居然是从一个小栏里爬出去的，等到了打的滴滴车上，我觉得我半边都打湿了，但是还是十分的兴奋，因为第一次参加现场笔试。回家做饭吃了已经10点过了。  </p>
+<p>第二天又接着要去成都电子科大参加经纬中国的联合招聘，是挺多的创业公司，笔试过了就能直接选三家进行面试。路途很遥远，那天放弃了乐视和完美世界的笔试，坐了将近2个小时的车到达了目的地，然后又花了好长时间去找地方（PS：电子科大真的好大啊）；回去的时候比较急，因为想要参加完美世界的笔试，我真贪心呐，我这么说自己。可是啊，不把笔试做了那就没机会参加面试的，可是回来还是晚了，在下了公交等滴滴的时候，我们买了几个馒头那吃，我太多年没觉得吃馒头都是那么幸福的事情了。那时候觉得自己既凄凉又搞；；；；；；；；；笑；；；；；；；；。然后又去买了泡面和速冻饺子晚饭吃得很开心。  </p>
+<p>这住别人家的时候不觉得什么，后面自己住旅馆的时候才知道生活还可以更糟，然后发现一个人住旅馆才是最遭的。  </p>
+<p>24号我们回重庆了，因为猪八戒的面试，可是待了一天我又回成都来了，因为小米和越秀集团的面试。  </p>
+<p>一个人住旅馆真的糟糕透了，因为一个人住，所以要买最最便宜的，最便宜的倒也不是很差，只是觉得很没有安全感。  </p>
+<p>昨天面试失败，我身体上的疲惫一下子爆发出来，坐过了站都没发现，即使是现在的我，也是极为疲惫，但是前路还很迷茫，我暂时还不能放弃，我只能继续加油。  </p>
+<p>借用灰太狼的一句话，成都，我还会再回来的，再见！</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/短板/" itemprop="url">
                   短板
                 </a>
@@ -344,1104 +1274,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/常用笔试题/" itemprop="url">
-                  常用笔试题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-19T11:15:26+08:00" content="2016-09-19">
-              2016-09-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/复习记录/" itemprop="url" rel="index">
-                    <span itemprop="name">复习记录</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="进程间通信："><a href="#进程间通信：" class="headerlink" title="进程间通信："></a>进程间通信：</h2><p><strong>方式一：访问其他应用程序的Activity</strong><br>Activity既可以在进程内（同一个应用程序）访问，也可以跨进程访问。Activity的跨进程访问与进程内访问略有不同。虽然它们都需要Intent对象，但跨进程访问并不需要指定Context对象和Activity的 Class对象，而需要指定的是要访问的Activity所对应的Action（一个字符串）。有些Activity还需要指定一个Uri（通过 Intent构造方法的第2个参数指定）。  </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/常用笔试题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/阳春白雪与下里巴人/" itemprop="url">
-                  阳春白雪与下里巴人
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-16T13:55:49+08:00" content="2016-09-16">
-              2016-09-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/把无趣的一天写得有意义/" itemprop="url" rel="index">
-                    <span itemprop="name">把无趣的一天写得有意义</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>下午两点的天，白花花的，跟重庆的天应该是一样的吧，但重庆的空气应该没这边这么阴冷。没办法，不论是国家还是个人都得以经济建设为中心。  </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/阳春白雪与下里巴人/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/数据库/" itemprop="url">
-                  数据库
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-10T09:04:20+08:00" content="2016-09-10">
-              2016-09-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/复习记录/" itemprop="url" rel="index">
-                    <span itemprop="name">复习记录</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>数据库概述</li>
-<li>关系数据库</li>
-<li>SQL</li>
-</ol>
-<h2 id="数据库概述"><a href="#数据库概述" class="headerlink" title="数据库概述"></a>数据库概述</h2><p>数据的主要功能：1.数据定义功能；2：数据组织、存储和管理；3：数据操纵功能；4：数据库的事务管理和运行管理；5：数据库的建立和维护功能；6：其他功能。</p>
-<h2 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h2><p>一行即是一个元祖，一列即是一个属性，域为属性的取值范围，分量对应元祖中的一个属性值（一个单元格）；  </p>
-<p>基本表：实际存在的表，实际存储数据的逻辑表示；<br>查询表：查询结果对应的表；<br>视图：由基本表或者其他视图导出的表，是虚表，不应对应实际存储的数据。   </p>
-<p>实体完整性：主码不为空，且唯一。<br>参照完整性：外码必须是另一个表的主码，外码值必须在它对应的实体中有对应的主码值。<strong>外码可以为空值。</strong><br>用户定义扥完整性：约束条件</p>
-<h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><p><img src="http://i.imgur.com/4DsPxiN.png" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/《第一行代码》/" itemprop="url">
-                  《第一行代码》
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-09T15:30:53+08:00" content="2016-09-09">
-              2016-09-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/复习记录/" itemprop="url" rel="index">
-                    <span itemprop="name">复习记录</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>学习是件愉快的事情。我一直是这么觉得的。因为在学习中所获得的充实感跟在玩乐或者吃完东西的那种满足感完全不同。  </p>
-<p>昨天状态奇差，我只是在各个网站上做了些笔试题这样，确实难得不知道说什么好，但是莫名有种好刺激的感觉，要是太简单，要在这么多人中被选中也是件难事。  </p>
-<p>所以今天决定看一本自己相比较更感兴趣的书《第一行代码》，最初乱七八糟的用到哪个控件就看哪个相关的博客，然后有段时间没做项目了就看了小猪（coder-pig）的博客，看了之后觉得自己已经不是初级人员，就没看什么初级的书就奔向了《Android艺术探索》,但是总感觉知识脱节了，有可能是当时看小猪的教程没那么认真，也有可能是因为忘掉了。总之，正好好久没接触Android相关的知识或者代码，重温一下也不错。</p>
-<p>申明，在此博客中也仅仅是为了后面懒得翻书，所以仅仅只写了我感兴趣和我确实有些忘了的部分。  </p>
-<h2 id="启动与关闭活动"><a href="#启动与关闭活动" class="headerlink" title="启动与关闭活动"></a>启动与关闭活动</h2><p>活动的启动模式：standard,singleTop,singleTask,singleInstance：标准，启动栈顶元素时不重新入栈，任务栈中仅仅存在一个实例，以前有的话，它成为栈顶元素，其他原本在他上面的都出栈，单独一个栈。  </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/网络基基础/" itemprop="url">
-                  网络基础
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T15:07:18+08:00" content="2016-09-08">
-              2016-09-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/复习记录/" itemprop="url" rel="index">
-                    <span itemprop="name">复习记录</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h2><p>###任务###</p>
-<ol>
-<li>物理层的任务</li>
-<li>信道复用技术</li>
-<li>宽带接入技术</li>
-</ol>
-<h3 id="物理层的任务"><a href="#物理层的任务" class="headerlink" title="物理层的任务"></a>物理层的任务</h3><p>数据在计算机中采用并行传输方式，在通信链路中的传输方式一般都是串行传输（处于经济的考虑）。  </p>
-<p>数据是运送消息的实体，信号是数据的电器或电磁的表现。  </p>
-<p>基带信号有的频率不能在许多信道中传输，所以需要对基带信号进行调制。<br>这种调制分为两类：  </p>
-<ol>
-<li><p>第一类：（<font style="color:red"><strong>基带调制</strong></font>:把数字信号转换为另外一种数字信号）：仅仅对波形进行变换，变换后的信号仍然是基带信号。这种过程也称为编码（归零，不归零，曼切斯特，查分曼切斯特）。  </p>
-</li>
-<li><p>第二类：（<font style="color:red"><strong>带通调制</strong></font>：调频，调相，调幅）：需要使用载波进行调制，即：把基带信号的频率范围搬移到较高的频段，并转为模拟信号。  </p>
-</li>
-</ol>
-<p>曼切斯特编码：位中心向上或向下定义为0或1.<br>差分曼切斯特码：位中心处都有跳变，位开始没有跳变代表1，有跳变代表0.  </p>
-<p>物理层下的传输媒体：数据传输系统中在发送器和接收器之间的物理通路。分为两大类：导引型和非导引型。  </p>
-<p>导引型传输媒体：电磁波沿着固体媒体（铜线或光纤）传播。  </p>
-<p>非导引型传输媒体：自由空间，在这里面电磁波的传输称为无线传输。</p>
-<h3 id="信道复用"><a href="#信道复用" class="headerlink" title="信道复用"></a>信道复用</h3><h3 id="宽带接入技术"><a href="#宽带接入技术" class="headerlink" title="宽带接入技术"></a>宽带接入技术</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/数据结构/" itemprop="url">
-                  数据结构
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T15:06:47+08:00" content="2016-09-08">
-              2016-09-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/复习记录/" itemprop="url" rel="index">
-                    <span itemprop="name">复习记录</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>数据</strong>：信息的载体，能够被计算机识别、存储、加工，包括整数、实数、字符串、图像、声音等  </p>
-<p><strong>数据元素</strong>：数据的基本单位，也称结点、元素、顶点、记录。一个数据元素可由若干个数据项组成  </p>
-<p><strong>数据项</strong>：是具有独立寒意的最小标识单元，也称字段、域、属性等  </p>
-<p><strong>数据结构</strong>：指数据之间的相互关系，即组织形式，有逻辑结构（一般程序中出现的形式）和物理结构之分（内存中的连续存储形式）；逻辑结构又有线性（非空，仅由一个开始结点和一个终端结点，除首尾结点之外，所有节点均只有一个直接前区和一个直接后继，如一维数组、栈、队列、链表、串等）和非线性之分（一个结点可以有多个直接前区和多个直接后继，如多维数组、广义表、树、图等）  </p>
-<p>如果两个没有环的链表相交于某个节点，那么在这个节点之后的所有节点都是两个链表所共有的。直接判断两链表的尾节点是否相同即可。  </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/java编程思想/" itemprop="url">
-                  java编程思想
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-05T09:12:39+08:00" content="2016-09-05">
-              2016-09-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/复习记录/" itemprop="url" rel="index">
-                    <span itemprop="name">复习记录</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这篇博客全篇都是java的知识点，边看《Java编程思想》边写的，一天两天之内可能无法完成，但是我也肯定会在最近这几天内看完，然后再开始看一些网络知识了。当然我不能照着书全部重新敲一遍，我只是整理我觉得混淆的和以前并不清楚的东西。不全面也是正常了。  </p>
-<p>目录结构如下：  </p>
-<ol>
-<li>对象</li>
-<li>操作符</li>
-<li>控制执行流程</li>
-<li>初始化与清理</li>
-<li>访问控制权限控制</li>
-<li>复用类</li>
-<li>多态</li>
-<li>接口</li>
-<li>内部类</li>
-<li>持有对象</li>
-<li>通过异常处理处理错误</li>
-<li>字符串</li>
-<li>类型信息</li>
-<li>泛型</li>
-<li>数组</li>
-<li>容器的深入研究</li>
-<li>Java I/O系统</li>
-<li>枚举类型</li>
-<li>注解</li>
-<li>并发</li>
-<li>组件</li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/java编程思想/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/自我评价/" itemprop="url">
-                  自我评价
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T20:37:00+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/把无趣的一天写得有意义/" itemprop="url" rel="index">
-                    <span itemprop="name">把无趣的一天写得有意义</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>前言：此自我介绍仅仅用于找工作时使用。</p>
-<p>&emsp;&emsp;各位面试官，你们好。  </p>
-<p>&emsp;&emsp;我是刘群，今年21岁，来自重庆理工大学，平时喜欢看书和动漫。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/自我评价/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/操作系统/" itemprop="url">
-                  操作系统
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T20:28:58+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/复习记录/" itemprop="url" rel="index">
-                    <span itemprop="name">复习记录</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>操作系统的复习比较细致，花了一天半边看书边整理框架，把基本的架构和一些我觉得需要注意的写在了框架上，还有一些需要代码实现的。</p>
-<ol>
-<li>操作系统框架</li>
-<li>基本状态转换</li>
-<li>请求分页使用的最近最少未使用算法</li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/操作系统/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1482,7 +1319,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1499,7 +1336,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
