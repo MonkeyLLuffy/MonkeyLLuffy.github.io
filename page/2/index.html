@@ -122,7 +122,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 3346bb72c9bd21d7d270704206d5bdae,
+      userId: 0,
       author: '博主'
     }
   };
@@ -308,6 +308,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/找工作之后/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/找工作之后/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -429,6 +436,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/读《黑白》有感/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/读《黑白》有感/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -544,6 +558,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/再见，成都/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/再见，成都/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -650,6 +671,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/短板/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/短板/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -769,6 +797,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/常用笔试题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/常用笔试题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -884,6 +919,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/阳春白雪与下里巴人/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/阳春白雪与下里巴人/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -998,6 +1040,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/数据库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/数据库/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1118,6 +1167,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/《第一行代码》/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/《第一行代码》/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1234,6 +1290,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/网络基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/网络基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1366,6 +1429,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/数据结构/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/数据结构/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1434,43 +1504,8 @@
           
 
 
-          <% if ( page.comments){ %>
+          
 
- <nav id="pagination" >
-    <% if (page.prev) { %>
-    <a href="<%- config.root %><%- page.prev.path %>" class="alignleft prev" ><%= __('prev') %></a>
-    <% } %>
-    <% if (page.next) { %>
-    <a href="<%- config.root %><%- page.next.path %>" class="alignright next" ><%= __('next') %></a>
-    <% } %>
-    <div class="clearfix"></div>
-</nav>
-
-
-
-<section id="comment">
-
-	
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="<%= page.path %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"monkeylluffy"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-
-  
-</section>
-<% } %>
         </div>
         
           
@@ -1666,9 +1701,30 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"monkeylluffy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
 
 
 
