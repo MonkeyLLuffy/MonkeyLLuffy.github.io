@@ -266,6 +266,110 @@
             
               
                 
+                <a class="post-title-link" href="/2017/log4j配置解析/" itemprop="url">
+                  log4j配置解析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-18T10:16:50+08:00" content="2017-01-18">
+              2017-01-18
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这两日有些无聊，然后又搭了一遍SSM框架，就是spring+spring mvc+mybatis框架，上次搭过一次，与上次不同，这次不是通过一个教程按部就班，而是一点一点的自己构建的。  </p>
+<p>可能是因为另外学了spring的缘故，然后稍微对整个框架也有了些了解。  </p>
+<p>这篇文章不是为了搭建框架，而是为了log4j的配置；  </p>
+<p>这篇文章的目录如下：  </p>
+<ol>
+<li>我的配置例子</li>
+<li>配置信息分析</li>
+<li>结语  </li>
+</ol>
+<!-- 更多 -->
+<h2 id="我的配置例子"><a href="#我的配置例子" class="headerlink" title="我的配置例子"></a>我的配置例子</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### set log levels ###</div><div class="line">log4j.rootLogger =INFO,stdout </div><div class="line"></div><div class="line">### export Console  ###</div><div class="line">log4j.appender.stdout = org.apache.log4j.ConsoleAppender</div><div class="line">log4j.appender.stdout.Target = System.err</div><div class="line">log4j.appender.stdout.layout=org.apache.log4j.SimpleLayout</div><div class="line"></div><div class="line">log4j.logger.druid.sql=DEBUG</div><div class="line">log4j.logger.druid.sql.DataSource=DEBUG</div><div class="line">log4j.logger.druid.sql.Connection=DEBUG</div><div class="line">log4j.logger.druid.sql.Statement=DEBUG</div><div class="line">log4j.logger.druid.sql.ResultSet=DEBUG</div><div class="line"></div><div class="line">#config own package</div><div class="line">log4j.logger.test.springmvc.dao = DEBUG</div><div class="line">log4j.logger.java.sql=INFO</div><div class="line">log4j.logger.java.sql.Statement=INFO</div><div class="line">log4j.logger.java.sql.ResultSet=INFO</div><div class="line">log4j.logger.java.sql.PreparedStatement=INFO</div></pre></td></tr></table></figure>
+<h2 id="配置信息分析"><a href="#配置信息分析" class="headerlink" title="配置信息分析"></a>配置信息分析</h2><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/王伟-81192/" itemprop="url">
                   王伟--81192
                 </a>
@@ -1252,121 +1356,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/读《黑白》有感/" itemprop="url">
-                  读《黑白》有感
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-07T12:35:18+08:00" content="2016-10-07">
-              2016-10-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/读书观影/" itemprop="url" rel="index">
-                    <span itemprop="name">读书观影</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>《黑白》这本书从情节上来看，是讲述陶羊子的从一个小孩，然后爱上围棋并逐步成为棋王的故事。他自小失去双亲，对白有着一种执着，当他把白棋下得极好，收到总督府上照拂的时候被他的老乡齐天勤一举打败并且把他送入他的人生第一个底端，然后他的舅舅也出事了……随后还有几次的大起大落，当他的人生最终归于平静的时候，他还是爱着棋，尽管中间有恨过棋，但最终还是爱的。  </p>
-<p>当然，一般人不会有这般境遇的。  </p>
-<p>我大概也喜欢上下围棋了吧。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1412,7 +1401,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
