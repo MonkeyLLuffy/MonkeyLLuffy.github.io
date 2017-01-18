@@ -123,7 +123,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: 3346bb72c9bd21d7d270704206d5bdae,
       author: '博主'
     }
   };
@@ -257,7 +257,7 @@
             目前共计 9 个分类
         </div>
         <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/名人纪念/">名人纪念</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/复习记录/">复习记录</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习记录/">学习记录</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/把无趣的一天写得有意义/">把无趣的一天写得有意义</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试博客/">测试博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/纪念意义/">纪念意义</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自我介绍/">自我介绍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书观影/">读书观影</a><span class="category-list-count">5</span></li></ul>
+          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/名人纪念/">名人纪念</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/复习记录/">复习记录</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习记录/">学习记录</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/把无趣的一天写得有意义/">把无趣的一天写得有意义</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试博客/">测试博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/纪念意义/">纪念意义</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自我介绍/">自我介绍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书观影/">读书观影</a><span class="category-list-count">5</span></li></ul>
         </div>
       </div>
     
@@ -268,12 +268,43 @@
           
 
 
-          
-  <div class="comments" id="comments">
-    
-  </div>
+          <% if ( page.comments){ %>
+
+ <nav id="pagination" >
+    <% if (page.prev) { %>
+    <a href="<%- config.root %><%- page.prev.path %>" class="alignleft prev" ><%= __('prev') %></a>
+    <% } %>
+    <% if (page.next) { %>
+    <a href="<%- config.root %><%- page.next.path %>" class="alignright next" ><%= __('next') %></a>
+    <% } %>
+    <div class="clearfix"></div>
+</nav>
 
 
+
+<section id="comment">
+
+	
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="<%= page.path %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"monkeylluffy"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+
+  
+</section>
+<% } %>
         </div>
         
           
@@ -304,7 +335,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

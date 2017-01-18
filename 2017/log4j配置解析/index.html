@@ -124,7 +124,7 @@ log4j概述
 我的配置例子
 配置信息分析
 结语">
-<meta property="og:updated_time" content="2017-01-18T06:53:47.991Z">
+<meta property="og:updated_time" content="2017-01-18T07:24:44.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="log4j配置解析">
 <meta name="twitter:description" content="这两日有些无聊，然后又搭了一遍SSM框架，就是spring+spring mvc+mybatis框架，上次搭过一次，与上次不同，这次不是通过一个教程按部就班，而是一点一点的自己构建的。  
@@ -147,7 +147,7 @@ log4j概述
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: 3346bb72c9bd21d7d270704206d5bdae,
       author: '博主'
     }
   };
@@ -355,7 +355,8 @@ log4j概述
 <li>log4j概述</li>
 <li>我的配置例子</li>
 <li>配置信息分析</li>
-<li>结语  </li>
+<li>结语</li>
+<li>其他相关链接   </li>
 </ol>
 <a id="more"></a>  
 <h2 id="log4j概述"><a href="#log4j概述" class="headerlink" title="log4j概述"></a>log4j概述</h2><p>Log4j中有三个主要的组件，它们分别是 Logger、Appender和Layout。</p>
@@ -395,8 +396,9 @@ log4j概述
 </ol>
 <h4 id="log4j-logger"><a href="#log4j-logger" class="headerlink" title="log4j.logger"></a>log4j.logger</h4><p>设置package输出级别,可以设置不同package的日志输出级别，语法为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">log4j.logger.packageName=level</div><div class="line">log4j.logger.test.springmvc.dao = DEBUG</div></pre></td></tr></table></figure></p>
 <p>其中，packageName为实际的包名，level为日志级别<br>与根rootLogger的类似，只是这个只是设置这个包里面的日志显示的级别。<br>就像案例中test.springmvc.dao包里的DEBUG级别以上都能打印  </p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>毕竟不是一个API文件，更多的属性运用到的时候百度起来也很容易，到时候补充。  </p>
-<p>平时要多总结，多记录，不然有时候稍稍忘掉就全都忘掉了。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>毕竟不是一个API文件，更多的属性运用到的时候百度起来也很容易，到时候补充。<br>平时要多总结，多记录，不然有时候稍稍忘掉就全都忘掉了。</p>
+<h2 id="其他相关链接"><a href="#其他相关链接" class="headerlink" title="其他相关链接"></a>其他相关链接</h2><p><a href="http://blog.csdn.net/lu8000/article/details/25754415" target="_blank" rel="external">log4j2 使用详解</a>  </p>
+<p><a href="http://www.cnblogs.com/byron0918/p/5769646.html" target="_blank" rel="external">log4j的使用详细解析</a></p>
 
       
     </div>
@@ -436,6 +438,10 @@ log4j概述
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/spring配置解析/" rel="prev" title="spring配置解析">
+                spring配置解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -457,12 +463,43 @@ log4j概述
           
 
 
-          
-  <div class="comments" id="comments">
-    
-  </div>
+          <% if ( page.comments){ %>
+
+ <nav id="pagination" >
+    <% if (page.prev) { %>
+    <a href="<%- config.root %><%- page.prev.path %>" class="alignleft prev" ><%= __('prev') %></a>
+    <% } %>
+    <% if (page.next) { %>
+    <a href="<%- config.root %><%- page.next.path %>" class="alignright next" ><%= __('next') %></a>
+    <% } %>
+    <div class="clearfix"></div>
+</nav>
 
 
+
+<section id="comment">
+
+	
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="<%= page.path %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"monkeylluffy"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+
+  
+</section>
+<% } %>
         </div>
         
           
@@ -502,7 +539,7 @@ log4j概述
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -568,7 +605,7 @@ log4j概述
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#log4j概述"><span class="nav-number">1.</span> <span class="nav-text">log4j概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的配置例子"><span class="nav-number">2.</span> <span class="nav-text">我的配置例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#log4j-appender-appenderName-layout"><span class="nav-number">2.0.1.</span> <span class="nav-text">log4j.appender.appenderName.layout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#log4j-logger"><span class="nav-number">2.0.2.</span> <span class="nav-text">log4j.logger</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#log4j概述"><span class="nav-number">1.</span> <span class="nav-text">log4j概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的配置例子"><span class="nav-number">2.</span> <span class="nav-text">我的配置例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#log4j-appender-appenderName-layout"><span class="nav-number">2.0.1.</span> <span class="nav-text">log4j.appender.appenderName.layout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#log4j-logger"><span class="nav-number">2.0.2.</span> <span class="nav-text">log4j.logger</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他相关链接"><span class="nav-number">4.</span> <span class="nav-text">其他相关链接</span></a></li></ol></div>
             
           </div>
         </section>
