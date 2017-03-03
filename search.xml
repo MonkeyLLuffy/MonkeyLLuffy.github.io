@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[sql优先级]]></title>
+      <url>%2F2017%2Fsql%E4%BC%98%E5%85%88%E7%BA%A7%2F</url>
+      <content type="text"><![CDATA[年前的时候就被分配改了一个bug，导致出库交运出现“第一目的公司错误，请重新导入”，一步一步发现是sql语句没有写完善，然后组长跟我说是因为没有对类型进行筛选为公司。然后就辣么酸爽的升级了3次都没成功。 升级第一版本之后sql语句的方法是这样的： public static String isCompanyInfo(Map newMap) { StringBuffer sql = new StringBuffer(); sql.append("select O.OFFICE_NAME MATCHING_COMPANY, O.OFFICE_ID COMPANYID"); sql.append(" from P_ORGANIZATION O "); sql.append(" where O.ABBREVIATION = '" + newMap.get("COMPANYINFO") + "'"); sql.append(" OR O.OFFICE_NAME = '" + newMap.get("COMPANYINFO") + "' "); sql.append(" and O.B_ENABLE = 1 "); sql.append(" and O.TYPE_CODE = 0 "); logger.info(sql.toString()); return sql.toString(); } 这个应该的结果是【简写或者全名为某某公司enable为1，TYPE_CODE为0】，但结果查出来的结果是【只要简写为某某公司的】和【全称是某某公司并且enable为1，TYPE_CODE为0】的所有数据。 当然，很多优先级情况都是可以避免的，只要自己记得加括号，不管需不需要，加上就最优先级了。 这是因为AND的优先级比OR的优先级高一些，所以在OR的那个地方被截成了两个条件。通过这个问题来学习SQL操作符。 优先级不同的情况下，优先级高的并且在同一层的会先结合在一起，然后再去连接优先级低的。所以想要跨优先级操作比如先OR再AND,就要加个括号了。 (BINARY,COLLATE) &gt; (!) &gt; (-,~) &gt; (^) &gt; (*,/,DIV,%,MOD) &gt; (+,-) &gt; (&lt;&lt;,&gt;&gt;)&gt; (&amp;) &gt; (|) &gt; (=,&lt;=&gt;,&gt;=,&lt;=,&lt;,&lt;&gt;,!=,IS,LIKE,REGEXP,IN) &gt; (BETWEEN,CASE,WHEN,THEN,ELSE) &gt; (NOT) &gt; ( &amp;&amp;,AND ) &gt; ( ||,OR,XOR ) &gt; ( := ) 操作符优先级由低到高，排列在同一行的操作符具有相同的优先级。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[开年勿忘]]></title>
+      <url>%2F2017%2F%E5%BC%80%E5%B9%B4%E5%8B%BF%E5%BF%98%2F</url>
+      <content type="text"><![CDATA[晟邦物流接口 easyPM上自己接任务 评级职业规划]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[spring配置解析]]></title>
       <url>%2F2017%2Fspring%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90%2F</url>
       <content type="text"><![CDATA[spring框架用了起码两年了，但是之前一直研究的是安卓那方面，对后台技术就没有做很多了解。现在仅以这篇博客顺便记录学习的过程。目录：]]></content>
