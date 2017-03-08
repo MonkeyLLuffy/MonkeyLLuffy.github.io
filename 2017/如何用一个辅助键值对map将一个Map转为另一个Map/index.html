@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="shi," />
+  <meta name="keywords" content="Hexo, 刘群" />
 
 
 
@@ -102,22 +102,33 @@
 
 
 
-<meta name="description" content="晟邦物流接口
-easyPM上自己接任务
-评级职业规划">
+<meta name="description" content="在拉单的时候遇到这么一种情况，我们拉取的一个Map里面，好多的建和值，但基本和我们的键值对应不上，这个时候必须一个一个转换，显得代码很长，很不利于阅读；  
+然后我们组长就跟我提是不是能写一个工具类来做一个统一的转换；  
+暂且我只考虑Map与Map有嵌套，不考虑List的嵌套：  
+整个代码的流程如下：
+代码如下：  
+12345678910111213141516171819202122232">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开年勿忘">
-<meta property="og:url" content="http://monkeylluffy.github.io/2017/开年勿忘/index.html">
+<meta property="og:title" content="如何用一个辅助键值对map将一个Map转为另一个Map">
+<meta property="og:url" content="http://monkeylluffy.github.io/2017/如何用一个辅助键值对map将一个Map转为另一个Map/index.html">
 <meta property="og:site_name" content="MonkeyLLuffy">
-<meta property="og:description" content="晟邦物流接口
-easyPM上自己接任务
-评级职业规划">
-<meta property="og:updated_time" content="2017-01-19T09:26:04.594Z">
+<meta property="og:description" content="在拉单的时候遇到这么一种情况，我们拉取的一个Map里面，好多的建和值，但基本和我们的键值对应不上，这个时候必须一个一个转换，显得代码很长，很不利于阅读；  
+然后我们组长就跟我提是不是能写一个工具类来做一个统一的转换；  
+暂且我只考虑Map与Map有嵌套，不考虑List的嵌套：  
+整个代码的流程如下：
+代码如下：  
+12345678910111213141516171819202122232">
+<meta property="og:image" content="http://i.imgur.com/UwXZleG.png">
+<meta property="og:updated_time" content="2017-03-08T02:03:37.006Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开年勿忘">
-<meta name="twitter:description" content="晟邦物流接口
-easyPM上自己接任务
-评级职业规划">
+<meta name="twitter:title" content="如何用一个辅助键值对map将一个Map转为另一个Map">
+<meta name="twitter:description" content="在拉单的时候遇到这么一种情况，我们拉取的一个Map里面，好多的建和值，但基本和我们的键值对应不上，这个时候必须一个一个转换，显得代码很长，很不利于阅读；  
+然后我们组长就跟我提是不是能写一个工具类来做一个统一的转换；  
+暂且我只考虑Map与Map有嵌套，不考虑List的嵌套：  
+整个代码的流程如下：
+代码如下：  
+12345678910111213141516171819202122232">
+<meta name="twitter:image" content="http://i.imgur.com/UwXZleG.png">
 
 
 
@@ -138,9 +149,9 @@ easyPM上自己接任务
 
 
 
-  <link rel="canonical" href="http://monkeylluffy.github.io/2017/开年勿忘/"/>
+  <link rel="canonical" href="http://monkeylluffy.github.io/2017/如何用一个辅助键值对map将一个Map转为另一个Map/"/>
 
-  <title> 开年勿忘 | MonkeyLLuffy </title>
+  <title> 如何用一个辅助键值对map将一个Map转为另一个Map | MonkeyLLuffy </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +304,7 @@ easyPM上自己接任务
             
             
               
-                开年勿忘
+                如何用一个辅助键值对map将一个Map转为另一个Map
               
             
           </h1>
@@ -305,8 +316,8 @@ easyPM上自己接任务
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-19T17:24:08+08:00" content="2017-01-19">
-              2017-01-19
+            <time itemprop="dateCreated" datetime="2017-03-07T20:38:18+08:00" content="2017-03-07">
+              2017-03-07
             </time>
           </span>
 
@@ -316,8 +327,8 @@ easyPM上自己接任务
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/开年勿忘/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/开年勿忘/" itemprop="commentsCount"></span>
+                <a href="/2017/如何用一个辅助键值对map将一个Map转为另一个Map/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/如何用一个辅助键值对map将一个Map转为另一个Map/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -340,12 +351,14 @@ easyPM上自己接任务
       
 
       
-        <ol>
-<li>晟邦物流接口</li>
-<li>easyPM上自己接任务</li>
-<li>评级职业规划</li>
-</ol>
-
+        <p>在拉单的时候遇到这么一种情况，我们拉取的一个Map里面，好多的建和值，但基本和我们的键值对应不上，这个时候必须一个一个转换，显得代码很长，很不利于阅读；  </p>
+<p>然后我们组长就跟我提是不是能写一个工具类来做一个统一的转换；  </p>
+<p>暂且我只考虑Map与Map有嵌套，不考虑List的嵌套：  </p>
+<p>整个代码的流程如下：<br><img src="http://i.imgur.com/UwXZleG.png" alt=""></p>
+<p>代码如下：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line"><span class="keyword">package</span> com.ewin.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.HashMap;</div><div class="line"><span class="keyword">import</span> java.util.Iterator;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> liuqun</div><div class="line"> * 把不同Map里面的值用辅助键值对Map转移到一个固定的map中</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LaDanUtil</span> </span>&#123;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 方法简述：</div><div class="line">	 * <span class="doctag">@param</span> keyMap</div><div class="line">	 * <span class="doctag">@param</span> data</div><div class="line">	 * <span class="doctag">@param</span> resultMap</div><div class="line">	 * <span class="doctag">@param</span> parentKey</div><div class="line">	 * 时间：2017-3-7</div><div class="line">	 * 作者：刘群</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">deal</span><span class="params">(Map keyMap,Map data,Map resultMap,String parentKey)</span> </span>&#123;</div><div class="line">		Iterable&lt;String&gt; keyIterable = keyMap.keySet();</div><div class="line">		<span class="keyword">for</span>(String key:keyIterable)&#123;</div><div class="line">			<span class="comment">//data.get(key);这个值是List类型</span></div><div class="line">			<span class="comment">//data.get(key);这个值是Map类型,循环这个map的key:dataMap-key,然后获取KeyMap中的dataMap+key</span></div><div class="line">			Object obj = data.get(key);</div><div class="line">			 <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Map) &#123;</div><div class="line">				<span class="comment">//map中的map</span></div><div class="line">				Map datakeyMap = (Map) data.get(key);</div><div class="line">				Map newKeyMap = <span class="keyword">new</span> HashMap();</div><div class="line">				<span class="keyword">for</span>(String filterKey:keyIterable)&#123;</div><div class="line">					<span class="keyword">if</span> (filterKey.startsWith(key+<span class="string">"-"</span>)) &#123;</div><div class="line">						newKeyMap.put(filterKey, keyMap.get(filterKey));</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				Iterable&lt;String&gt; datakeyIterable = keyMap.keySet();</div><div class="line">				<span class="comment">//map中的map的key</span></div><div class="line">				<span class="keyword">for</span>(String datakey:datakeyIterable) &#123;</div><div class="line">					deal(newKeyMap,datakeyMap,resultMap,key+<span class="string">"-"</span>);</div><div class="line"><span class="comment">//					resultMap.put(key+"-"+datakey, datakeyMap.get(datakey));</span></div><div class="line">				&#125;</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				resultMap.put(keyMap.get(key), data.get(key));</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Map keyMap = <span class="keyword">new</span> HashMap();</div><div class="line">		Map data = <span class="keyword">new</span> HashMap();</div><div class="line">		Map resultMap = <span class="keyword">new</span> HashMap();</div><div class="line">		</div><div class="line">		keyMap.put(<span class="string">"ID"</span>, <span class="string">"BILL_NO"</span>);</div><div class="line">		keyMap.put(<span class="string">"Name"</span>, <span class="string">"BILL_NAME"</span>);</div><div class="line">		keyMap.put(<span class="string">"contact"</span>, <span class="keyword">null</span>);</div><div class="line">		keyMap.put(<span class="string">"contact-RECEIVE_ID"</span>, <span class="string">"RECEIVE_ID"</span>);</div><div class="line">		keyMap.put(<span class="string">"contact-RECEIVE_Name"</span>, <span class="string">"RECEIVE_Name"</span>);</div><div class="line">		keyMap.put(<span class="string">"contact-addr"</span>,<span class="keyword">null</span>);</div><div class="line">		keyMap.put(<span class="string">"contact-addr-province"</span>,<span class="string">"RECEIVE_Prov"</span>);</div><div class="line">		keyMap.put(<span class="string">"contact-addr-city"</span>,<span class="string">"RECEIVE_City"</span>);</div><div class="line">		</div><div class="line">		data.put(<span class="string">"ID"</span>, <span class="string">"11111111"</span>);</div><div class="line">		data.put(<span class="string">"Name"</span>, <span class="string">"张三"</span>);</div><div class="line">		Map map1 = <span class="keyword">new</span> HashMap();</div><div class="line">		map1.put(<span class="string">"RECEIVE_ID"</span>, <span class="string">"222222222"</span>);</div><div class="line">		map1.put(<span class="string">"RECEIVE_Name"</span>, <span class="string">"李四"</span>);</div><div class="line">		</div><div class="line">		Map map2 = <span class="keyword">new</span> HashMap();</div><div class="line">		map2.put(<span class="string">"province"</span>, <span class="string">"浙江"</span>);</div><div class="line">		map2.put(<span class="string">"city"</span>, <span class="string">"杭州"</span>);</div><div class="line">		map1.put(<span class="string">"addr"</span>, map2);</div><div class="line"></div><div class="line">		data.put(<span class="string">"contact"</span>, map1);</div><div class="line">		String parentKey = <span class="string">""</span>;</div><div class="line">		deal(keyMap,data,resultMap,parentKey);</div><div class="line">		System.out.println(resultMap);</div><div class="line">		</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出的结果为：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&#123;RECEIVE_Prov=浙江, BILL_NAME=张三, RECEIVE_City=杭州, RECEIVE_Name=李四, BILL_NO=<span class="number">11111111</span>, RECEIVE_ID=<span class="number">222222222</span>&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -365,28 +378,18 @@ easyPM上自己接任务
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/shi/" rel="tag">#shi</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/spring配置解析/" rel="next" title="spring配置解析">
-                <i class="fa fa-chevron-left"></i> spring配置解析
+              <a href="/2017/sql优先级/" rel="next" title="sql优先级">
+                <i class="fa fa-chevron-left"></i> sql优先级
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/sql优先级/" rel="prev" title="sql优先级">
-                sql优先级 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
