@@ -358,29 +358,14 @@
 
       
         
-          
-            <p>以前在看小说的时候，最是喜欢看男主喜欢上了女主，而女主却是感觉一般般。  </p>
+          <p>以前在看小说的时候，最是喜欢看男主喜欢上了女主，而女主却是感觉一般般。  </p>
 <p>有时候朋友之间也是如此，你把她当最好的朋友，然而你其实只是和别人一样而已，她不会因为你的喜好有所忌讳，说得遮羞一点叫不体贴，说得真实一点其实就是泯然众人，甚至还比不上别人。  </p>
-<p>这种努力有用吗？  </p>
-<p>我也不知道，只是努力太久了也没什么差别的时候，还是算了吧，并不需要太多亲近的朋友，反正整个大学就那么浑浑噩噩的过了，最后一两年交的朋友有什么要紧呢？  </p>
-<p>反正从大一的时候就最亲近的朋友不也没把你当最亲近的么？时间是最残酷的东西，会教你看清所有，看清所谓的朋友这种关系，看清人与人为什么而连结在一起？  </p>
-<p>昨晚跑步的时候我一直在想，我是否强求了别人？我为什么要负气暴走？  </p>
-<p>大概我觉得我真的不需要太亲近的人，越亲近就越有占有欲。如果当做最普通的室友的话，其实就会好很多吧，对整个宿舍的人都好。  </p>
-<p>然后什么叫最普通的室友关系呢？  </p>
-<ol>
-<li>做饭严格执勤</li>
-<li>上下班碰巧就一起走，不碰巧也不必等</li>
-<li>减少肢体接触</li>
-<li>减少思想交流</li>
-</ol>
-<p>但要怎么不着痕迹的疏远呢？  </p>
-<ol>
-<li>有意识的一个人走一排，不和别人排着走，不会有肢体接触</li>
-<li>晚上睡觉的时候靠边上睡</li>
-<li>在聊关于内心的时候不要说话，拿着手机自己玩，不听不说</li>
-</ol>
-
-          
+<p>这种努力有用吗？<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/我不是我觉得最亲近的人的最亲近的人/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -497,33 +482,13 @@
 
       
         
-          
-            <h1 id="正文之前"><a href="#正文之前" class="headerlink" title="正文之前"></a>正文之前</h1><p>许久没有学习新知识了，之前是做安卓的，对java后端其实也没那么了解，只是算是会用，今天任务差不多做完了，在下班之后学习JFinal新框架。  </p>
+          <h1 id="正文之前"><a href="#正文之前" class="headerlink" title="正文之前"></a>正文之前</h1><p>许久没有学习新知识了，之前是做安卓的，对java后端其实也没那么了解，只是算是会用，今天任务差不多做完了，在下班之后学习JFinal新框架。  </p>
 <p>百度百科以及官网首页的那些优点我就不说了。直接开启代码人的第一课，配置第一个Demo;</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>目录：</p>
-<ol>
-<li>新建项目  </li>
-<li>配置web.xml  </li>
-<li>第一个Controller </li>
-<li>配置Config类   </li>
-<li>运行  </li>
-</ol>
-<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>myeclipse中新建一个web Project项目，没有自动生成web.xml文件的点击两次next之后勾选生成web.xml;  </p>
-<p>将jfinal-3.0-bin-with-src.jar放入lib文件夹下。  </p>
-<h2 id="第一个Controller"><a href="#第一个Controller" class="headerlink" title="第一个Controller"></a>第一个Controller</h2><p>新建的controller一定要继承Controller类，然后index方法里面的内容可以省略方法名就可以访问。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">index</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="comment">//		renderText("Hello JFinal world");</span></div><div class="line">		<span class="keyword">this</span>.render(<span class="string">"/index.jsp"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</div><div class="line">		String userName = <span class="keyword">this</span>.getPara(<span class="string">"userName"</span>);</div><div class="line"></div><div class="line">		String sayHello = <span class="string">"Hello "</span> + userName + <span class="string">"，welcome to JFinal world."</span>;</div><div class="line">		System.out.println(sayHello);</div><div class="line">		<span class="keyword">this</span>.setAttr(<span class="string">"sayHello"</span>, sayHello);</div><div class="line"></div><div class="line">		<span class="keyword">this</span>.render(<span class="string">"/hello.jsp"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>index.jsp:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> </div></pre></td></tr></table></figure></p>
-<h2 id="配置Config类"><a href="#配置Config类" class="headerlink" title="配置Config类"></a>配置Config类</h2><p>me.add(“hello”,HelloController.class)这句的意思就是把HelloController映射为hello。  </p>
-<p>me.setViewType(ViewType.JSP);这个不设置的话会被当做普通文本来输出；  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">public class DemoConfig extends JFinalConfig&#123;</div><div class="line"></div><div class="line">	</div><div class="line">	@Override</div><div class="line">	public void configConstant(Constants me) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		me.setDevMode(true);</div><div class="line">		me.setEncoding(&quot;utf-8&quot;);</div><div class="line">		me.setViewType(ViewType.JSP);</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void configRoute(Routes me) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		me.add(&quot;hello&quot;,HelloController.class);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void configEngine(Engine me) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void configPlugin(Plugins me) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void configInterceptor(Interceptors me) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void configHandler(Handlers me) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">		me.add(new ContextPathHandler(&quot;basePath&quot;));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="配置web-xml"><a href="#配置web-xml" class="headerlink" title="配置web.xml"></a>配置web.xml</h2><p>web.xml中的要把之前的Config类配置进去：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line"> 	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>jfinal<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line"> 	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.jfinal.core.JFinalFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"> 	<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line"> 		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>configClass<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line"> 		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>demo.DemoConfig<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"> 	<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line"> 	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>jfinal<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line"> 	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>放入tomcat中运行即可。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>学习的时候，有人说直接给我一个项目看着学得快点，然而并没有直接给我；还有人说不要花时间学，要用的时候再去学就行。  </p>
-<p>我不喜欢在我学东西的时候有这些言论，所以一直学东西就是悄悄的学。  </p>
-<p>不管怎么，学习都是自己的东西，等东西不够的时候去学，那我何不一切了然于胸，等用的时候得心应手呢？</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/JFinal学习之——Demo1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
