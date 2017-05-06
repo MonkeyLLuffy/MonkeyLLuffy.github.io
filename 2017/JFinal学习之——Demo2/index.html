@@ -102,16 +102,37 @@
 
 
 
-<meta name="description" content="刘群的博客">
+<meta name="description" content="概述今天是美妙的星期天，然后下着雨，然后去买药了，感觉人生十分萧索，然后我觉得只有学习才能让自己充实一点，然后我就下定决心今天JFinal这个东西全部弄完，所以这一篇是十分粗长的一篇。  
+话不多说，进入学习，目录如下：  
+
+路径说明  
+
+
+路径说明finalView = baseViewPath + viewPath + view上面的公式是指整个Jfinal路径需要三个值来决定，首先说明三">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JFinal学习之——Demo2">
 <meta property="og:url" content="http://monkeylluffy.github.io/2017/JFinal学习之——Demo2/index.html">
 <meta property="og:site_name" content="MonkeyLLuffy">
-<meta property="og:description" content="刘群的博客">
-<meta property="og:updated_time" content="2017-03-10T09:22:57.088Z">
+<meta property="og:description" content="概述今天是美妙的星期天，然后下着雨，然后去买药了，感觉人生十分萧索，然后我觉得只有学习才能让自己充实一点，然后我就下定决心今天JFinal这个东西全部弄完，所以这一篇是十分粗长的一篇。  
+话不多说，进入学习，目录如下：  
+
+路径说明  
+
+
+路径说明finalView = baseViewPath + viewPath + view上面的公式是指整个Jfinal路径需要三个值来决定，首先说明三">
+<meta property="og:image" content="http://i.imgur.com/Yyfz9MM.png">
+<meta property="og:image" content="http://i.imgur.com/antcNRd.png">
+<meta property="og:updated_time" content="2017-03-12T12:36:25.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JFinal学习之——Demo2">
-<meta name="twitter:description" content="刘群的博客">
+<meta name="twitter:description" content="概述今天是美妙的星期天，然后下着雨，然后去买药了，感觉人生十分萧索，然后我觉得只有学习才能让自己充实一点，然后我就下定决心今天JFinal这个东西全部弄完，所以这一篇是十分粗长的一篇。  
+话不多说，进入学习，目录如下：  
+
+路径说明  
+
+
+路径说明finalView = baseViewPath + viewPath + view上面的公式是指整个Jfinal路径需要三个值来决定，首先说明三">
+<meta name="twitter:image" content="http://i.imgur.com/Yyfz9MM.png">
 
 
 
@@ -353,7 +374,34 @@
       
 
       
-        
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>今天是美妙的星期天，然后下着雨，然后去买药了，感觉人生十分萧索，然后我觉得只有学习才能让自己充实一点，然后我就下定决心今天JFinal这个东西全部弄完，所以这一篇是十分粗长的一篇。  </p>
+<p>话不多说，进入学习，目录如下：  </p>
+<ul>
+<li>路径说明  </li>
+<li></li>
+</ul>
+<h1 id="路径说明"><a href="#路径说明" class="headerlink" title="路径说明"></a>路径说明</h1><p>finalView = baseViewPath + viewPath + view<br>上面的公式是指整个Jfinal路径需要三个值来决定，首先说明三个值：<br><strong>baseViewPath是图上的那个</strong>：  </p>
+<p><img src="http://i.imgur.com/Yyfz9MM.png" alt="">  </p>
+<p><strong>然后是viewPath:</strong></p>
+<p><img src="http://i.imgur.com/antcNRd.png" alt="">  </p>
+<p>当Route.add方法只有两个参数时，第一个参数为ViewPath,三个参数时认为第三个参数是viewPath;  </p>
+<p>最后是view：<br>this.render(view);  </p>
+<font color="red">需要说明的是：当View以/开头时，是绝对路径，就是说整个的Final路径只由view决定。</font>  
+
+<p>然后分为两种种情况：  </p>
+<ol>
+<li>controller中的方法访问路径由方法名与controllerKey决定；或者在方法上加上注释：@ActionKey(“/login”)</li>
+<li>congtroller中的方法中this.render(view)是指跳转到某个路径，不论是绝对路径还是组合路径，都要在WebRoot【并不是webInfo下】目录下有相应的路径的文件，  </li>
+</ol>
+<p>总结：</p>
+<ol>
+<li>JFinal的文件路径配置这一块十分的灵活，不依靠注解；基本路径，controller路径，文件路径分明，但我想使用习惯了之后反而会更加喜欢直接用绝对路径；</li>
+<li>JFinal虽然无配置文件但是必须要继承一个JFinalConfig的类，这有点像监听器一般；而且Config的配置新手必须对照着文档来，有时能很快看懂是干啥的，是否必要等。</li>
+<li>java中Render对应的路径是WebRoot下而不是在webInfo下，这导致一个问题，文件的安全性，通过文件路径也能访问到对应文件，而不是spring那样把页面文件放在WEBINFO下，在java中跳转，获得安全性；</li>
+</ol>
+<p>————-这是今天没写完的分割线——————–</p>
+<p>Jfinal的路径是十分方便的，index方法是</p>
+
       
     </div>
 
@@ -391,6 +439,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/同时运行两个tomcat/" rel="prev" title="同时运行两个tomcat">
+                同时运行两个tomcat <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -472,7 +524,7 @@ var duoshuoQuery = {short_name:"monkeylluffy"};
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -538,7 +590,7 @@ var duoshuoQuery = {short_name:"monkeylluffy"};
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#路径说明"><span class="nav-number">2.</span> <span class="nav-text">路径说明</span></a></li></ol></div>
             
           </div>
         </section>
