@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, 刘群" />
+  <meta name="keywords" content="工作日常," />
 
 
 
@@ -102,16 +102,31 @@
 
 
 
-<meta name="description" content="刘群的博客">
+<meta name="description" content="最近在做合同管理的相关需求的时候，有按年查询类型进行统计的，也有按年然后还有类型还有月还有公司进行查询，维度有点多。  
+通过分解之后，每条的sql说起来也不是很复杂。  
+要实现的折线图是这样子的：//插入一个图
+思路是根据公司查询这一年每个月签订的合同数，这个月没有的时候也要显示为0  
+就像合同类型的统计一样，用合同类型的常量表进行左链接，可以得到这样类似的结果：//插入一张图  
+然后我通">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first job">
-<meta property="og:url" content="http://monkeylluffy.github.io/2016/first-job/index.html">
+<meta property="og:title" content="查询统计12个月 要有12条结果">
+<meta property="og:url" content="http://monkeylluffy.github.io/2017/查询统计12个月-要有12条结果/index.html">
 <meta property="og:site_name" content="MonkeyLLuffy">
-<meta property="og:description" content="刘群的博客">
-<meta property="og:updated_time" content="2016-11-04T07:19:16.199Z">
+<meta property="og:description" content="最近在做合同管理的相关需求的时候，有按年查询类型进行统计的，也有按年然后还有类型还有月还有公司进行查询，维度有点多。  
+通过分解之后，每条的sql说起来也不是很复杂。  
+要实现的折线图是这样子的：//插入一个图
+思路是根据公司查询这一年每个月签订的合同数，这个月没有的时候也要显示为0  
+就像合同类型的统计一样，用合同类型的常量表进行左链接，可以得到这样类似的结果：//插入一张图  
+然后我通">
+<meta property="og:updated_time" content="2017-07-25T14:48:38.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first job">
-<meta name="twitter:description" content="刘群的博客">
+<meta name="twitter:title" content="查询统计12个月 要有12条结果">
+<meta name="twitter:description" content="最近在做合同管理的相关需求的时候，有按年查询类型进行统计的，也有按年然后还有类型还有月还有公司进行查询，维度有点多。  
+通过分解之后，每条的sql说起来也不是很复杂。  
+要实现的折线图是这样子的：//插入一个图
+思路是根据公司查询这一年每个月签订的合同数，这个月没有的时候也要显示为0  
+就像合同类型的统计一样，用合同类型的常量表进行左链接，可以得到这样类似的结果：//插入一张图  
+然后我通">
 
 
 
@@ -132,9 +147,9 @@
 
 
 
-  <link rel="canonical" href="http://monkeylluffy.github.io/2016/first-job/"/>
+  <link rel="canonical" href="http://monkeylluffy.github.io/2017/查询统计12个月-要有12条结果/"/>
 
-  <title> first job | MonkeyLLuffy </title>
+  <title> 查询统计12个月 要有12条结果 | MonkeyLLuffy </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -287,7 +302,7 @@
             
             
               
-                first job
+                查询统计12个月 要有12条结果
               
             
           </h1>
@@ -299,19 +314,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-04T15:19:16+08:00" content="2016-11-04">
-              2016-11-04
+            <time itemprop="dateCreated" datetime="2017-07-25T22:38:01+08:00" content="2017-07-25">
+              2017-07-25
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">学习记录</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/first-job/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/first-job/" itemprop="commentsCount"></span>
+                <a href="/2017/查询统计12个月-要有12条结果/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/查询统计12个月-要有12条结果/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -334,7 +368,22 @@
       
 
       
-        
+        <p>最近在做合同管理的相关需求的时候，有按年查询类型进行统计的，也有按年然后还有类型还有月还有公司进行查询，维度有点多。  </p>
+<p>通过分解之后，每条的sql说起来也不是很复杂。  </p>
+<p>要实现的折线图是这样子的：<br>//插入一个图</p>
+<p>思路是根据公司查询这一年每个月签订的合同数，这个月没有的时候也要显示为0  </p>
+<p>就像合同类型的统计一样，用合同类型的常量表进行左链接，可以得到这样类似的结果：<br>//插入一张图  </p>
+<p>然后我通过我的sql：<br>//插入sql代码</p>
+<p>得到的结果是这样的：<br>//插入一张图</p>
+<p>这不是我想要的结果，所以我开始天马行空的想了几下解决方案：</p>
+<ol>
+<li><p>建一个表专门存1，2，3，4，5，6，7，8，9，10，11，12这样几条数据，然后跟我的合同表进行左链接，这样可以达到效果。</p>
+</li>
+<li><p>然后我请教了组长，组长说是没有必要的。说要给我想解决方案，然后他给我了一条sql(真是辛苦他了，我下班就跑了，他一个人在那写的)：<br>//插入一段代码  </p>
+</li>
+<li></li>
+</ol>
+
       
     </div>
 
@@ -354,21 +403,27 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/工作日常/" rel="tag">#工作日常</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/找工作之后/" rel="next" title="找工作之后">
-                <i class="fa fa-chevron-left"></i> 找工作之后
+              <a href="/2017/下站实习感想/" rel="next" title="下站实习感想">
+                <i class="fa fa-chevron-left"></i> 下站实习感想
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/大冰作品/" rel="prev" title="大冰作品">
-                大冰作品 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/认识自己/" rel="prev" title="认识自己">
+                认识自己 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
