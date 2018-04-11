@@ -288,6 +288,294 @@
             
               
                 
+                <a class="post-title-link" href="/2018/2018-4-11复习记录/" itemprop="url">
+                  2018-4-11复习记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-11T20:23:52+08:00" content="2018-04-11">
+              2018-04-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/复习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">复习记录</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/2018-4-11复习记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/2018-4-11复习记录/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="今天的絮絮叨叨"><a href="#今天的絮絮叨叨" class="headerlink" title="今天的絮絮叨叨"></a>今天的絮絮叨叨</h1><p>今天去面试了，然后给了8.5K，我觉得这样跳槽的价值不大，一是这个公司规模也……6个人，2个Android，2个IOS,2个PHP。甚至还是合租办公室。  </p>
+<h1 id="Application-Context和Activity的Context的区别"><a href="#Application-Context和Activity的Context的区别" class="headerlink" title="Application Context和Activity的Context的区别"></a>Application Context和Activity的Context的区别</h1><ol>
+<li>启动服务的时候采用Application,因为如果用Activity可能会导致这个页面无法回收，留下隐患，内存泄漏问题。</li>
+<li>跳转页面、对话框、Inflate页面不要使用ApplicationContext,Inflate的时候会使用系统默认的主题样式，自定义的某些样式可能不会使用。</li>
+</ol>
+<p>我总结了看的一些博客，Application和Service继承的是ContextWrapper,而Activity继承的是ContextThemeWrapper。开发中凡是跟UI相关的，都用Activity做为Context来处理。但是要记得Context的持有对象的处理。   </p>
+<h1 id="RecycleView的使用复习"><a href="#RecycleView的使用复习" class="headerlink" title="RecycleView的使用复习"></a>RecycleView的使用复习</h1><p>写这个模块是因为今天去面试，那个面试看我没写RecycleView的题，就指着这东西问，没办法，这个缺口只有学习来补了。  </p>
+<p>首先引入<a href="https://blog.csdn.net/xx326664162/article/details/61199895" title="鸿洋的博客" target="_blank" rel="external">鸿洋的博客</a>，这里面基础使用已经是可以了。但是还是对使用流程做一个介绍。</p>
+<ol>
+<li>首先要对这个Recycle设置LayoutManager(设置布局方式)。然后设置RecycleView.Adapter.  </li>
+<li>重写Adapter,主要四复写onBindViewHolder、onCreateViewHolder，实现RecyclerView.ViewHolder的类。</li>
+<li>设置分割线、动画、或者CardView的风格的展示。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">// Activity中</div><div class="line">mRecyclerView.setLayoutManager(new LinearLayoutManager(this));//这里用线性显示 类似于listview</div><div class="line">// mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));//这里用线性宫格显示 类似于grid view</div><div class="line">// mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));//这里用线性宫格显示 类似于瀑布流</div><div class="line">      </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">//adpter中重写的</div><div class="line">   @Override</div><div class="line">   public NormalTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) &#123;</div><div class="line">       return new NormalTextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   @Override</div><div class="line">   public void onBindViewHolder(NormalTextViewHolder holder, int position) &#123;</div><div class="line">       holder.mTextView.setText(mTitles[position]);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   public static class NormalTextViewHolder extends RecyclerView.ViewHolder &#123;</div><div class="line">       @InjectView(R.id.text_view)</div><div class="line">       TextView mTextView;</div><div class="line"></div><div class="line">       NormalTextViewHolder(View view) &#123;</div><div class="line">           super(view);</div><div class="line">           ButterKnife.inject(this, view);</div><div class="line">		//相当于ItemClickListener</div><div class="line">           view.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">               @Override</div><div class="line">               public void onClick(View v) &#123;</div><div class="line">                   Log.d(&quot;NormalTextViewHolder&quot;, &quot;onClick--&gt; position = &quot; + getPosition());</div><div class="line">               &#125;</div><div class="line">           &#125;);</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>关于RecycleView的复用描述：创建的ViewHolder必须继承RecyclerView.ViewHolder，这个RecyclerView.ViewHolder构造时必须传入一个View，这个View相当于我们ListView getView中的convertView （即：inflate的item布局需要传入）。  </p>
+<p>还有一点，ListView中convertView是复用的，在RecyclerView中，是把ViewHolder类作为缓存的单位了，然后convertView作为ViewHolder的成员变量保持在ViewHolder中，也就是说，假设屏幕显示10个条目，则会创建10个ViewHolder缓存起来，每次复用的是ViewHolder，所以他把getView这个方法变为了onCreateViewHolder。  </p>
+<p>分割线、动画等都挺有趣，但是这次基本略过，另外CardView也是个挺好用挺好看的控件。  </p>
+<p>下面说一些Recycle在一些特殊场景使用：</p>
+<ol>
+<li>在RecycleView中使用Webview导致滑动不下去，可以先给WebView设置一个假的固定高度，等加载到这个页面的时候再重新设置这个高度。（面试官说的，其实我还没有理清楚）</li>
+</ol>
+<h1 id="Broadcast的静态注册与动态注册"><a href="#Broadcast的静态注册与动态注册" class="headerlink" title="Broadcast的静态注册与动态注册"></a>Broadcast的静态注册与动态注册</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/2018-4-9复习记录/" itemprop="url">
+                  2018-4-9复习记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-09T23:47:03+08:00" content="2018-04-09">
+              2018-04-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/复习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">复习记录</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/2018-4-9复习记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/2018-4-9复习记录/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="开始的絮絮叨叨"><a href="#开始的絮絮叨叨" class="headerlink" title="开始的絮絮叨叨"></a>开始的絮絮叨叨</h1><p>打开电脑之前是想把今天复习的内容，敲敲代码然后贴上来的，现在看看时间已经快12点了，遂代码留到明天。今天先做个提纲，明天应该写啥，还有就是整理下最近的事情。</p>
+<h1 id="Activity的启动模式"><a href="#Activity的启动模式" class="headerlink" title="Activity的启动模式"></a>Activity的启动模式</h1><p>引入启动模式的原因有2，如果页面都在一个栈里，不断返回才能退出APP，用户体验差；还有一个原因是如果每个页面都创建实例，对象太多，容易内存溢出。  </p>
+<p>下面具体谈四种模式：<br>standard 标准模式，每次被Intent跳转启动，都会创建一个新的实例。  </p>
+<p>singleTop 栈顶复用，就是说当面页面跳转到当前页面是不会创建新页面的，而是复用当前这个页面，这个时候就不会回调onCreate重新创建实例了。如果需要启动的Activity并没有处于栈顶位置，那么还是会回调onCreate方法，重新创建一个新的实例。<strong>这里有个未解决的疑问是，那跳转之后的这个页面的生命周期会经过哪几步？</strong>  </p>
+<p>使用上，网上说当出来有很多个推送或通知的时候，这些通知启动的都是一个Activity,所以，需要对这个Activity设置singleTop,以免多次返回，具体看需求设计。  </p>
+<p>singleTask  栈内单实例，这个模式就是一个栈中只有一个实例，当它处于栈中时，会先将其他页面先出栈使得它恢复栈顶位置。<strong>同上一个问题，这个Activity的生命周期是什么样的？</strong>  </p>
+<p>使用上，推荐主页面设置为这个模式，当返回到这个主界面的时候，直接将处于主界面上的其他界面取出出栈，避免层次太复杂。</p>
+<p>singleInstance 单实例，启动的Activity都会被单独的放到另外一个任务栈中，而且其他的Activity不会进入这个栈，这个栈是它自己独有的。<strong>这里有一个新问题，当这个页面被启动多次是有多个栈还是同一个栈，还有就是在它页面上跳转的Activity会新建栈还是什么操作？</strong>  </p>
+<p>使用上，这个页面适合需要与程序分离开的页面。例如闹铃提醒，将闹铃提醒与闹铃设置分离。singleInstance不要用于中间页面。</p>
+<p>还有一些标志位，主要介绍俩种，<br>FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS ： 具有这个标记位的Activity不会出现在历史Activity的列表,我的理解是登录页需要这个标记位  </p>
+<p>FLAG_ACTIVITY_CLEAR_TOP 这个效果与singleTask有点像，但是如果我们在xml里面给这个Activity指定的是standard，那么它自己都要出栈下<strong>（singleTop没有说明，可以做个试验）</strong>。</p>
+<h1 id="Service的两种启动方式"><a href="#Service的两种启动方式" class="headerlink" title="Service的两种启动方式"></a>Service的两种启动方式</h1><p>这俩种方式的生命周期从启动到使用再到销毁都有很大的不同，但是我还是从相同的点开始记录，都运行在主线程，都必须在Manifest文件注册。下面开始两者的不同：  </p>
+<p>startService 这个是服务的常用方式，在Activity中触发StartService方法后，第一次启动的时候会oncreate，然后其他都一样，onstartCommon,在页面中StopService的时候会调用OnDestory。启动一次没有停止运行的话就会一直运行在后台。一处启动，多处使用（所以不使用Thread）。  </p>
+<p>使用上，这种启动方式是Local本地方式，播放音乐，定时向后台发送东西等一些比较常见的使用。  </p>
+<p>bindService 也叫Remote服务，远程服务。使用相比没有startService的方式熟悉，但是，这种方式也是很重要的一种方式，尤其是在进程间通信的时候（细节见下一节）。使用方式上，在Activity中绑定，然后启动远程服务，注意在页面销毁时要解除绑定。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">bindService(new Intent(ActivityAidl.this, AIDLService.class), mConnection, BIND_AUTO_CREATE);</div><div class="line">private final ServiceConnection mConnection = new ServiceConnection()</div><div class="line">   &#123;</div><div class="line"></div><div class="line">       @Override</div><div class="line">       public void onServiceDisconnected(ComponentName arg0)</div><div class="line">       &#123;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">       @Override</div><div class="line">       public void onServiceConnected(ComponentName arg0, IBinder arg1)</div><div class="line">       &#123;</div><div class="line">           Log.e(TAG, &quot;----onServiceConnected----&quot;);</div><div class="line">           //asInterface函数可以在gen的aidl对应的java文件中查看</div><div class="line">           mAidlService = AIDLSum.Stub.asInterface(arg1);</div><div class="line">           double sum;</div><div class="line">           try</div><div class="line">           &#123;</div><div class="line">               sum = mAidlService.sum(2.0, 5.0);</div><div class="line">               Log.e(TAG, sum + &quot;&quot;);</div><div class="line">           &#125; catch (RemoteException e)</div><div class="line">           &#123;</div><div class="line">               e.printStackTrace();</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;;</div><div class="line"></div><div class="line">//上面是在Activity中，下面是Service的代码，继承Service，</div><div class="line"></div><div class="line">@Override</div><div class="line">   public IBinder onBind(Intent arg0)</div><div class="line">   &#123;</div><div class="line">       return new Messenger(mHandler).getBinder();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">或者选择返回一个Binder</div><div class="line"> /**</div><div class="line">    * 该类用于在onBind方法执行后返回的对象，</div><div class="line">    * 该对象对外提供了该服务里的方法</div><div class="line">    */</div><div class="line">   private class MyBinder extends Binder implements IMyBinder &#123;</div><div class="line"></div><div class="line">       @Override</div><div class="line">       public void invokeMethodInMyService() &#123;</div><div class="line">           methodInMyService();</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>在使用上，最通常的是在进程通信的时候使用，将service注册的时候设置android:process或者另外启动一个app做实验。接下一节内容。</p>
+<h1 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h1><p>AIDL  </p>
+<p>Messenger  </p>
+<p>IBinder</p>
+<h1 id="View的事件传递"><a href="#View的事件传递" class="headerlink" title="View的事件传递"></a>View的事件传递</h1><p>View  </p>
+<p>ViewGroup</p>
+<h1 id="大图片无缩放高清加载"><a href="#大图片无缩放高清加载" class="headerlink" title="大图片无缩放高清加载"></a>大图片无缩放高清加载</h1><p>手势  </p>
+<p>重绘  </p>
+<p>图片加载</p>
+<h1 id="自定义View"><a href="#自定义View" class="headerlink" title="自定义View"></a>自定义View</h1><p>继承已有的控件  </p>
+<p>继承View</p>
+<h1 id="关于最近"><a href="#关于最近" class="headerlink" title="关于最近"></a>关于最近</h1><p>可以看到，现在的时间已经是接近12点了，我11点到家，洗澡泡脚等事情之后已经很晚了，但是我知道，今天不把博客文件建起来，明天估计就有明天的事情了。而且今天我看到我之前写的文章，感觉排版和复习效果都不错。学知识很容易，成为自己的很难。只有把这些代码都敲一遍，用自己的话叙述一遍，等下一次再看的时候才会轻而易举。  </p>
+<p>说来最近打算换工作了。上次笑哥找我谈话，问我的职业规划是什么，说来懵逼了，我还真不知道我的职业规划是什么。听过看过经历一些事情后，对自己要走的路有了更加明确的认识，更知道不能再这么浪费时间。是时候去做自己真正喜欢的事情了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/2018年第一篇博客/" itemprop="url">
                   2018年第一篇博客
                 </a>
@@ -1360,244 +1648,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/记5月22晚做的一个梦/" itemprop="url">
-                  记5月22晚做的一个梦
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-23T11:42:28+08:00" content="2017-05-23">
-              2017-05-23
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/记5月22晚做的一个梦/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/记5月22晚做的一个梦/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>昨晚做了一个梦，梦的男主角是个大概很有范的厨师，我大概死缠烂打了很久才追上他。后面居然意外发展到李乐出现了（大概是昨天李乐回来了，所以会梦到她），为什么出现我也不知道。梦的结尾处，那天下雪了，我们要出去吃饭，我先出去探路，遇到了男主他爷爷，他爷爷似乎很衰弱了，我撑着他走着，走着突然他就没有力气了，然后两个人一起摔倒地上了。给男主打了个电话~然后就醒了。  </p>
-<p>梦的内容很长，但说起来却感觉很短，我还记得初醒时我内心澎湃的那种感觉，羡慕又甜蜜。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/养伤两周整/" itemprop="url">
-                  养伤两周整
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-06T12:24:33+08:00" content="2017-05-06">
-              2017-05-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/心灵感悟/" itemprop="url" rel="index">
-                    <span itemprop="name">心灵感悟</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/养伤两周整/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/养伤两周整/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>回重庆之后都没写过博客，不是没时间，而是太多情绪涌上心头，造成的就是无尽的空虚，然后就是懒惰。  </p>
-<p>回重庆之后的前两天，各种吃喝，然后去了姨妈那里，然后就是收文件，再然后就是去医院挂了个号，再然后就是回家待了两天，其实我妈妈住那里环境真的不好，睡的两天都没睡好。然后就是回綦江去见了赵梅。  </p>
-<p>吃了午饭基本又直接回重庆了，重庆要说有什么特别吸引我的话，那就是宿舍，我的宿舍感觉像我的家一样，其他的任何地方都不能带给我这种感觉。  </p>
-<p>有的人，平时感觉有多好，但真的有事的时候，她躲得远远的；而有的人平时感觉悄无声息的，但听说有事的时候，就是一言不发的站到你身旁。  </p>
-<p>李萍明显是后者，她从我在花溪医院照核磁共振开始，之后几乎每次去医院都有她陪着。在住院那段时间，我还没动手术的时候就陪着我，讲真的，如果这件事落在别人身上，我是做不到这样的，更让我感动的是她在我出院之后还被我随叫随到，我不善于表达，不知道要怎么表达我的感动于感激，希望她一生平安顺遂，让我只有送红包来表达这种感激。  </p>
-<p>离我做完手术已经整整两周，劳动节的时候，做了一个梦，梦到梅青松了，我心里很久以前的小心思又开始萌芽。  </p>
-<p>有的时候，刻意做某件事给某人看的时候，有可能别人根本看不到，你要直接的告诉他才行。我刚回重庆就发了说说，为什么？还不是因为我想说他刷下空间就能看到我回来了的消息。我发了好多条说说，别人都没看到。  </p>
-<p>劳动节的时候用那个梦壮了胆子之后早上起来就给梅青松发QQ，说的什么忘了，反正就是胡乱搭上了一句话，然后接下来都主动的找他聊天什么的……几天都是春心萌动的那种状态。  </p>
-<p>我很早就大概知道自己是喜欢他的，因为有人找我的时候，我总是想起他，我如果不是单身了，我就没资格了，我大概是在等他吧。但其实他只是我一个最普通的同学。  </p>
-<p>前两天聊天的时候，他说要来找我耍，我希望他来，但我并不希望别人来。我没问太多，怕暴露了什么。那天我从早上起来等到下午都睡着了都没找我。下午快晚饭的时候来了，我心里一喜，但是我去接的时候，邓伟也来了……我很感激邓伟来看我，但是我心里还是有点失落，因为希望是他一个人来。希望落空了总是有些难过的，那天我整个人表现得差极了，看见他们的水果我也不知道说什么，我脚不方便，不能给他们倒杯水，好多好多都不能表现好。  </p>
-<p>离他来看我已经是两天之后了，中间找他聊了一次天，他在实验室配试剂，不好打扰，之后就找不到话题去找他了。  </p>
-<p>而且，找他做什么呢？他毕业在重庆，我毕业要去上海，所以我能做什么呢？我不应该再打扰他了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1638,7 +1693,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">60</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1655,7 +1710,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

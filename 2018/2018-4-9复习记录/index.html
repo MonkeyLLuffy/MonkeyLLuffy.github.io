@@ -1,0 +1,860 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|oboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="找工作日常," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="开始的絮絮叨叨打开电脑之前是想把今天复习的内容，敲敲代码然后贴上来的，现在看看时间已经快12点了，遂代码留到明天。今天先做个提纲，明天应该写啥，还有就是整理下最近的事情。
+Activity的启动模式引入启动模式的原因有2，如果页面都在一个栈里，不断返回才能退出APP，用户体验差；还有一个原因是如果每个页面都创建实例，对象太多，容易内存溢出。  
+下面具体谈四种模式：standard 标准模式，每次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018-4-9复习记录">
+<meta property="og:url" content="http://monkeylluffy.github.io/2018/2018-4-9复习记录/index.html">
+<meta property="og:site_name" content="MonkeyLLuffy">
+<meta property="og:description" content="开始的絮絮叨叨打开电脑之前是想把今天复习的内容，敲敲代码然后贴上来的，现在看看时间已经快12点了，遂代码留到明天。今天先做个提纲，明天应该写啥，还有就是整理下最近的事情。
+Activity的启动模式引入启动模式的原因有2，如果页面都在一个栈里，不断返回才能退出APP，用户体验差；还有一个原因是如果每个页面都创建实例，对象太多，容易内存溢出。  
+下面具体谈四种模式：standard 标准模式，每次">
+<meta property="og:updated_time" content="2018-04-11T14:39:33.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018-4-9复习记录">
+<meta name="twitter:description" content="开始的絮絮叨叨打开电脑之前是想把今天复习的内容，敲敲代码然后贴上来的，现在看看时间已经快12点了，遂代码留到明天。今天先做个提纲，明天应该写啥，还有就是整理下最近的事情。
+Activity的启动模式引入启动模式的原因有2，如果页面都在一个栈里，不断返回才能退出APP，用户体验差；还有一个原因是如果每个页面都创建实例，对象太多，容易内存溢出。  
+下面具体谈四种模式：standard 标准模式，每次">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://monkeylluffy.github.io/2018/2018-4-9复习记录/"/>
+
+  <title> 2018-4-9复习记录 | MonkeyLLuffy </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MonkeyLLuffy</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">http://monkeylluffy.github.io/</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                2018-4-9复习记录
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-09T23:47:03+08:00" content="2018-04-09">
+              2018-04-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/复习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">复习记录</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/2018-4-9复习记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/2018-4-9复习记录/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="开始的絮絮叨叨"><a href="#开始的絮絮叨叨" class="headerlink" title="开始的絮絮叨叨"></a>开始的絮絮叨叨</h1><p>打开电脑之前是想把今天复习的内容，敲敲代码然后贴上来的，现在看看时间已经快12点了，遂代码留到明天。今天先做个提纲，明天应该写啥，还有就是整理下最近的事情。</p>
+<h1 id="Activity的启动模式"><a href="#Activity的启动模式" class="headerlink" title="Activity的启动模式"></a>Activity的启动模式</h1><p>引入启动模式的原因有2，如果页面都在一个栈里，不断返回才能退出APP，用户体验差；还有一个原因是如果每个页面都创建实例，对象太多，容易内存溢出。  </p>
+<p>下面具体谈四种模式：<br>standard 标准模式，每次被Intent跳转启动，都会创建一个新的实例。  </p>
+<p>singleTop 栈顶复用，就是说当面页面跳转到当前页面是不会创建新页面的，而是复用当前这个页面，这个时候就不会回调onCreate重新创建实例了。如果需要启动的Activity并没有处于栈顶位置，那么还是会回调onCreate方法，重新创建一个新的实例。<strong>这里有个未解决的疑问是，那跳转之后的这个页面的生命周期会经过哪几步？</strong>  </p>
+<p>使用上，网上说当出来有很多个推送或通知的时候，这些通知启动的都是一个Activity,所以，需要对这个Activity设置singleTop,以免多次返回，具体看需求设计。  </p>
+<p>singleTask  栈内单实例，这个模式就是一个栈中只有一个实例，当它处于栈中时，会先将其他页面先出栈使得它恢复栈顶位置。<strong>同上一个问题，这个Activity的生命周期是什么样的？</strong>  </p>
+<p>使用上，推荐主页面设置为这个模式，当返回到这个主界面的时候，直接将处于主界面上的其他界面取出出栈，避免层次太复杂。</p>
+<p>singleInstance 单实例，启动的Activity都会被单独的放到另外一个任务栈中，而且其他的Activity不会进入这个栈，这个栈是它自己独有的。<strong>这里有一个新问题，当这个页面被启动多次是有多个栈还是同一个栈，还有就是在它页面上跳转的Activity会新建栈还是什么操作？</strong>  </p>
+<p>使用上，这个页面适合需要与程序分离开的页面。例如闹铃提醒，将闹铃提醒与闹铃设置分离。singleInstance不要用于中间页面。</p>
+<p>还有一些标志位，主要介绍俩种，<br>FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS ： 具有这个标记位的Activity不会出现在历史Activity的列表,我的理解是登录页需要这个标记位  </p>
+<p>FLAG_ACTIVITY_CLEAR_TOP 这个效果与singleTask有点像，但是如果我们在xml里面给这个Activity指定的是standard，那么它自己都要出栈下<strong>（singleTop没有说明，可以做个试验）</strong>。</p>
+<h1 id="Service的两种启动方式"><a href="#Service的两种启动方式" class="headerlink" title="Service的两种启动方式"></a>Service的两种启动方式</h1><p>这俩种方式的生命周期从启动到使用再到销毁都有很大的不同，但是我还是从相同的点开始记录，都运行在主线程，都必须在Manifest文件注册。下面开始两者的不同：  </p>
+<p>startService 这个是服务的常用方式，在Activity中触发StartService方法后，第一次启动的时候会oncreate，然后其他都一样，onstartCommon,在页面中StopService的时候会调用OnDestory。启动一次没有停止运行的话就会一直运行在后台。一处启动，多处使用（所以不使用Thread）。  </p>
+<p>使用上，这种启动方式是Local本地方式，播放音乐，定时向后台发送东西等一些比较常见的使用。  </p>
+<p>bindService 也叫Remote服务，远程服务。使用相比没有startService的方式熟悉，但是，这种方式也是很重要的一种方式，尤其是在进程间通信的时候（细节见下一节）。使用方式上，在Activity中绑定，然后启动远程服务，注意在页面销毁时要解除绑定。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">bindService(new Intent(ActivityAidl.this, AIDLService.class), mConnection, BIND_AUTO_CREATE);</div><div class="line">private final ServiceConnection mConnection = new ServiceConnection()</div><div class="line">   &#123;</div><div class="line"></div><div class="line">       @Override</div><div class="line">       public void onServiceDisconnected(ComponentName arg0)</div><div class="line">       &#123;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">       @Override</div><div class="line">       public void onServiceConnected(ComponentName arg0, IBinder arg1)</div><div class="line">       &#123;</div><div class="line">           Log.e(TAG, &quot;----onServiceConnected----&quot;);</div><div class="line">           //asInterface函数可以在gen的aidl对应的java文件中查看</div><div class="line">           mAidlService = AIDLSum.Stub.asInterface(arg1);</div><div class="line">           double sum;</div><div class="line">           try</div><div class="line">           &#123;</div><div class="line">               sum = mAidlService.sum(2.0, 5.0);</div><div class="line">               Log.e(TAG, sum + &quot;&quot;);</div><div class="line">           &#125; catch (RemoteException e)</div><div class="line">           &#123;</div><div class="line">               e.printStackTrace();</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;;</div><div class="line"></div><div class="line">//上面是在Activity中，下面是Service的代码，继承Service，</div><div class="line"></div><div class="line">@Override</div><div class="line">   public IBinder onBind(Intent arg0)</div><div class="line">   &#123;</div><div class="line">       return new Messenger(mHandler).getBinder();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">或者选择返回一个Binder</div><div class="line"> /**</div><div class="line">    * 该类用于在onBind方法执行后返回的对象，</div><div class="line">    * 该对象对外提供了该服务里的方法</div><div class="line">    */</div><div class="line">   private class MyBinder extends Binder implements IMyBinder &#123;</div><div class="line"></div><div class="line">       @Override</div><div class="line">       public void invokeMethodInMyService() &#123;</div><div class="line">           methodInMyService();</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>在使用上，最通常的是在进程通信的时候使用，将service注册的时候设置android:process或者另外启动一个app做实验。接下一节内容。</p>
+<h1 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h1><p>AIDL  </p>
+<p>Messenger  </p>
+<p>IBinder</p>
+<h1 id="View的事件传递"><a href="#View的事件传递" class="headerlink" title="View的事件传递"></a>View的事件传递</h1><p>View  </p>
+<p>ViewGroup</p>
+<h1 id="大图片无缩放高清加载"><a href="#大图片无缩放高清加载" class="headerlink" title="大图片无缩放高清加载"></a>大图片无缩放高清加载</h1><p>手势  </p>
+<p>重绘  </p>
+<p>图片加载</p>
+<h1 id="自定义View"><a href="#自定义View" class="headerlink" title="自定义View"></a>自定义View</h1><p>继承已有的控件  </p>
+<p>继承View</p>
+<h1 id="关于最近"><a href="#关于最近" class="headerlink" title="关于最近"></a>关于最近</h1><p>可以看到，现在的时间已经是接近12点了，我11点到家，洗澡泡脚等事情之后已经很晚了，但是我知道，今天不把博客文件建起来，明天估计就有明天的事情了。而且今天我看到我之前写的文章，感觉排版和复习效果都不错。学知识很容易，成为自己的很难。只有把这些代码都敲一遍，用自己的话叙述一遍，等下一次再看的时候才会轻而易举。  </p>
+<p>说来最近打算换工作了。上次笑哥找我谈话，问我的职业规划是什么，说来懵逼了，我还真不知道我的职业规划是什么。听过看过经历一些事情后，对自己要走的路有了更加明确的认识，更知道不能再这么浪费时间。是时候去做自己真正喜欢的事情了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/找工作日常/" rel="tag">#找工作日常</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/2018年第一篇博客/" rel="next" title="2018年第一篇博客">
+                <i class="fa fa-chevron-left"></i> 2018年第一篇博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/2018-4-11复习记录/" rel="prev" title="2018-4-11复习记录">
+                2018-4-11复习记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+ <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="<%- page.path %>" data-title="<%- page.title %>" data-url="<%- page.permalink %>"></div> 
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"monkeylluffy"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/girl.jpeg"
+               alt="MonkeyLLuffy" />
+          <p class="site-author-name" itemprop="name">MonkeyLLuffy</p>
+          <p class="site-description motion-element" itemprop="description">刘群的博客</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MonkeyLLuffy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2450166183/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开始的絮絮叨叨"><span class="nav-number">1.</span> <span class="nav-text">开始的絮絮叨叨</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Activity的启动模式"><span class="nav-number">2.</span> <span class="nav-text">Activity的启动模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service的两种启动方式"><span class="nav-number">3.</span> <span class="nav-text">Service的两种启动方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程间通信"><span class="nav-number">4.</span> <span class="nav-text">进程间通信</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#View的事件传递"><span class="nav-number">5.</span> <span class="nav-text">View的事件传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大图片无缩放高清加载"><span class="nav-number">6.</span> <span class="nav-text">大图片无缩放高清加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义View"><span class="nav-number">7.</span> <span class="nav-text">自定义View</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于最近"><span class="nav-number">8.</span> <span class="nav-text">关于最近</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MonkeyLLuffy</span>
+</div>
+
+<div class="powered-by">
+  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"monkeylluffy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -288,6 +288,254 @@
             
               
                 
+                <a class="post-title-link" href="/2017/sql优先级/" itemprop="url">
+                  sql优先级
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-03T18:13:55+08:00" content="2017-03-03">
+              2017-03-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">学习记录</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/sql优先级/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/sql优先级/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>年前的时候就被分配改了一个bug，导致出库交运出现“第一目的公司错误，请重新导入”，一步一步发现是sql语句没有写完善，然后组长跟我说是因为没有对类型进行筛选为公司。然后就辣么酸爽的升级了3次都没成功。</p>
+<p>升级第一版本之后sql语句的方法是这样的：</p>
+<pre><code class="java">
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">isCompanyInfo</span><span class="params">(Map newMap)</span>
+  </span>{
+    StringBuffer sql = <span class="keyword">new</span> StringBuffer();
+    sql.append(<span class="string">"select O.OFFICE_NAME MATCHING_COMPANY, O.OFFICE_ID COMPANYID"</span>);
+    sql.append(<span class="string">"  from P_ORGANIZATION O          "</span>);
+    sql.append(<span class="string">" where O.ABBREVIATION = '"</span> + newMap.get(<span class="string">"COMPANYINFO"</span>) + <span class="string">"'"</span>);
+    sql.append(<span class="string">"    OR O.OFFICE_NAME = '"</span> + newMap.get(<span class="string">"COMPANYINFO"</span>) + <span class="string">"' "</span>);
+    sql.append(<span class="string">"   and O.B_ENABLE = 1                                  "</span>);
+    sql.append(<span class="string">"   and O.TYPE_CODE = 0                                  "</span>);
+    logger.info(sql.toString());
+    <span class="keyword">return</span> sql.toString();
+  }
+</code></pre>
+<p>这个应该的结果是【简写或者全名为某某公司enable为1，TYPE_CODE为0】，但结果查出来的结果是【只要简写为某某公司的】和【全称是某某公司并且enable为1，TYPE_CODE为0】的所有数据。  </p>
+<p>当然，很多优先级情况都是可以避免的，只要自己记得加括号，不管需不需要，加上就最优先级了。  </p>
+<p>这是因为AND的优先级比OR的优先级高一些，所以在OR的那个地方被截成了两个条件。通过这个问题来学习SQL操作符。  </p>
+<p>优先级不同的情况下，优先级高的并且在同一层的会先结合在一起，然后再去连接优先级低的。所以想要跨优先级操作比如先OR再AND,就要加个括号了。  </p>
+<p>(<strong>BINARY,COLLATE</strong>) &gt; (<strong>!</strong>) &gt; (<strong>-,~</strong>) &gt; (<strong>^</strong>) &gt; (<strong>*,/,DIV,%,MOD</strong>) &gt; (<strong>+,-</strong>) &gt; (<strong>&lt;&lt;,&gt;&gt;</strong>)&gt; (&amp;) &gt; (<strong>|</strong>) &gt; (<strong>=,&lt;=&gt;,&gt;=,&lt;=,&lt;,&lt;&gt;,!=,IS,LIKE,REGEXP,IN</strong>) &gt; (<strong>BETWEEN,CASE,WHEN,THEN,ELSE</strong>) &gt; (<strong>NOT</strong>) &gt; ( <strong>&amp;&amp;,AND</strong> ) &gt; ( <strong>||,OR,XOR</strong> ) &gt; ( <strong>:=</strong> )</p>
+<font color="red">操作符优先级由低到高，排列在同一行的操作符具有相同的优先级。</font>
+
+<p><img src="http://i.imgur.com/3eMuwZU.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/开年勿忘/" itemprop="url">
+                  开年勿忘
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-19T17:24:08+08:00" content="2017-01-19">
+              2017-01-19
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/开年勿忘/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/开年勿忘/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>晟邦物流接口</li>
+<li>easyPM上自己接任务</li>
+<li>评级职业规划</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/spring配置解析/" itemprop="url">
                   spring配置解析
                 </a>
@@ -1229,239 +1477,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/大冰作品/" itemprop="url">
-                  大冰作品
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-04T16:20:39+08:00" content="2016-11-04">
-              2016-11-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/读书观影/" itemprop="url" rel="index">
-                    <span itemprop="name">读书观影</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/大冰作品/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/大冰作品/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>从一个人的文字中，其实最能够了解一个人，要是几十万几百万的字都撒谎的话也太难了。  </p>
-<p>他不是正统的文学人士，他的江湖气息很浓重，身份也是很多重的。  </p>
-<p>从几本书的文字中可以看到，他对主持这个身份颇不以为然，但让一众读者不理解的是为什么他还要维持这个身份？我猜想了几种可能，也行他希望不要过着一种生活（他说过最多在丽江也只呆15天），若是少了一重身份，也就意味着他的生活相对来说更单调了；也许是他虽然对那个圈子不以为然，但是他对主持这个职业还是喜欢的。  </p>
-<p>现在很多人骑行拉萨，或者青藏地旅行，我今年坐了几趟青藏线的火车，听到的都是骑行路上的事情，提西藏的反而很少，从他们的只言片语中，几乎都是说各种坑爹的事情。从大冰的大片的文字中，我能感觉到他对拉萨的深深的怀念。  </p>
-<p>现在有句话叫“因为一个人，爱上一座城”，但我想很多事情不是那么简单的，在一个地方呆得久了，似乎这个地方也成为了一个朋友，一个永远不会离开的朋友。我想，很多老年人的家乡情结应该也是这样吧。  </p>
-<p>在他笔下更加浓墨重彩描写的是丽江，丽江这个地方哦，被称为艳遇之都，大冰一遍又一遍的说，丽江并不是只有艳遇，而酒吧街的酒吧并不是真正的丽江特色酒吧，在他的故事里，路平、大军、大树都开了酒吧，在我们心中，泡酒吧的孩子都不是好孩子，但是在大冰的小屋里只有啤酒，只有民谣，只有吉他和手鼓，其他的什么艳遇都与它无关。  </p>
-<p>我还是一个实用主义者，每次看到书中的浪漫主义者一遍一遍犯傻的时候，我都想如果是我怎么怎么，但终究只是如果。我终究还是是个实用主义者，甚至连看书的目的我都不知道是否单纯。  </p>
-<p>这个世上还是需要很多傻子的，看着看着我甚至是羡慕这些傻子的，连大冰都是羡慕的吧，因为傻，才能纯粹的热爱，因为傻，在被爱或者爱的时候都能百分百的付出，大军卖唱超过150就给妻子买一条裙子，直到衣柜装不下也继续买，她的妻子甚至是在炫耀幸福的让大冰去交大军不要买了，或者买点其他也行，她为他放弃学业，一心跟着他，傻不傻？我认为傻透了，明明可以完成学业之后再爱，但是她是那么义无反顾，最终得到的爱人人羡慕。  </p>
-<p>这些傻子啊，都是得到了傻福的人。我最终也还是做不到傻傻的过的吧，就算是蠢笨如我，也还是实用主义者。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/first-job/" itemprop="url">
-                  first job
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-04T15:19:16+08:00" content="2016-11-04">
-              2016-11-04
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/first-job/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/first-job/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1502,7 +1522,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">60</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1519,7 +1539,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
