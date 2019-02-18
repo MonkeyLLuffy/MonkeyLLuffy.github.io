@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[高并发解决方案]]></title>
+      <url>%2F2019%2F%E9%AB%98%E5%B9%B6%E5%8F%91%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[并发编程]]></title>
+      <url>%2F2019%2F%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[2018-4-11复习记录]]></title>
       <url>%2F2018%2F2018-4-11%E5%A4%8D%E4%B9%A0%E8%AE%B0%E5%BD%95%2F</url>
       <content type="text"><![CDATA[今天的絮絮叨叨今天去面试了，然后给了8.5K，我觉得这样跳槽的价值不大，一是这个公司规模也……6个人，2个Android，2个IOS,2个PHP。甚至还是合租办公室。 Application Context和Activity的Context的区别 启动服务的时候采用Application,因为如果用Activity可能会导致这个页面无法回收，留下隐患，内存泄漏问题。 跳转页面、对话框、Inflate页面不要使用ApplicationContext,Inflate的时候会使用系统默认的主题样式，自定义的某些样式可能不会使用。 我总结了看的一些博客，Application和Service继承的是ContextWrapper,而Activity继承的是ContextThemeWrapper。开发中凡是跟UI相关的，都用Activity做为Context来处理。但是要记得Context的持有对象的处理。 RecycleView的使用复习写这个模块是因为今天去面试，那个面试看我没写RecycleView的题，就指着这东西问，没办法，这个缺口只有学习来补了。 首先引入鸿洋的博客，这里面基础使用已经是可以了。但是还是对使用流程做一个介绍。 首先要对这个Recycle设置LayoutManager(设置布局方式)。然后设置RecycleView.Adapter. 重写Adapter,主要四复写onBindViewHolder、onCreateViewHolder，实现RecyclerView.ViewHolder的类。 设置分割线、动画、或者CardView的风格的展示。 123456789101112131415161718192021222324252627282930313233343536 // Activity中mRecyclerView.setLayoutManager(new LinearLayoutManager(this));//这里用线性显示 类似于listview// mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));//这里用线性宫格显示 类似于grid view// mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));//这里用线性宫格显示 类似于瀑布流 //adpter中重写的 @Override public NormalTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) &#123; return new NormalTextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false)); &#125; @Override public void onBindViewHolder(NormalTextViewHolder holder, int position) &#123; holder.mTextView.setText(mTitles[position]); &#125; public static class NormalTextViewHolder extends RecyclerView.ViewHolder &#123; @InjectView(R.id.text_view) TextView mTextView; NormalTextViewHolder(View view) &#123; super(view); ButterKnife.inject(this, view); //相当于ItemClickListener view.setOnClickListener(new View.OnClickListener() &#123; @Override public void onClick(View v) &#123; Log.d(&quot;NormalTextViewHolder&quot;, &quot;onClick--&gt; position = &quot; + getPosition()); &#125; &#125;); &#125; &#125; 关于RecycleView的复用描述：创建的ViewHolder必须继承RecyclerView.ViewHolder，这个RecyclerView.ViewHolder构造时必须传入一个View，这个View相当于我们ListView getView中的convertView （即：inflate的item布局需要传入）。 还有一点，ListView中convertView是复用的，在RecyclerView中，是把ViewHolder类作为缓存的单位了，然后convertView作为ViewHolder的成员变量保持在ViewHolder中，也就是说，假设屏幕显示10个条目，则会创建10个ViewHolder缓存起来，每次复用的是ViewHolder，所以他把getView这个方法变为了onCreateViewHolder。 分割线、动画等都挺有趣，但是这次基本略过，另外CardView也是个挺好用挺好看的控件。 下面说一些Recycle在一些特殊场景使用： 在RecycleView中使用Webview导致滑动不下去，可以先给WebView设置一个假的固定高度，等加载到这个页面的时候再重新设置这个高度。（面试官说的，其实我还没有理清楚） Broadcast的静态注册与动态注册]]></content>
